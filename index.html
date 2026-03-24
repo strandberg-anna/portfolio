@@ -197,6 +197,19 @@ footer {
   .projects { padding: 0 24px; }
   footer { padding: 48px 24px; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
+
+  .images {
+    grid-template-columns: 2fr 1fr;
+    align-items: start;
+  }
+
+  .images img:first-child {
+    aspect-ratio: 1/1;
+  }
+
+  .images .img-second {
+    aspect-ratio: 1/1;
+  }
 }
 
 /* MOBILE */
@@ -209,7 +222,7 @@ footer {
   .projects { padding: 0 20px; }
   footer { padding: 40px 20px; }
   .images { grid-template-columns: 1fr; }
-  .images img { aspect-ratio: 4/3; }
+  .images img { aspect-ratio: 1/1; }
   .img-second { display: none; }
   .footer-grid { grid-template-columns: 1fr; gap: 32px; }
 }
@@ -319,16 +332,9 @@ footer {
       <h4>Contact</h4>
       <p>
         +46 733 04 50 30<br>
-        strandberg.anna@gmail.com
+        <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a8dbdcdac9c6cccacddacf86c9c6c6c9e8cfc5c9c1c486cbc7c5">[email&#160;protected]</a>
       </p>
     </div>
     <div class="footer-col">
       <h4>Social</h4>
       <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
-      <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
-    </div>
-  </div>
-</footer>
-
-</body>
-</html>
