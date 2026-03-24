@@ -92,10 +92,9 @@ nav {
   margin-bottom: 64px;
 }
 
-/* Image grid — mobile: 1 square + thin sliver of second */
+/* Image grid base */
 .images {
   display: grid;
-  grid-template-columns: 1fr 60px;
   gap: 3px;
   margin-bottom: 20px;
   overflow: hidden;
@@ -108,14 +107,8 @@ nav {
   display: block;
 }
 
-.img-second {
-  aspect-ratio: unset;
-  height: 100%;
-}
-
-.img-third {
-  display: none;
-}
+.img-second { display: none; }
+.img-third  { display: none; }
 
 /* Text below images */
 .meta-label {
@@ -194,8 +187,31 @@ footer {
   line-height: 2;
 }
 
-/* TABLET */
-@media (max-width: 900px) {
+/* MOBILE: bild 1 kvadrat + smal sliver av bild 2 */
+@media (max-width: 599px) {
+  nav { padding: 14px 20px; }
+  .nav-links { display: none; }
+  .hero { padding: 48px 20px 32px; }
+  .divider { margin: 0 20px 32px; }
+  .portfolio-label { padding: 0 20px 20px; }
+  .projects { padding: 0 20px; }
+  footer { padding: 40px 20px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+
+  .images {
+    grid-template-columns: 1fr 48px;
+  }
+  .img-second {
+    display: block;
+    aspect-ratio: unset;
+    height: 100%;
+    object-fit: cover;
+  }
+  .img-third { display: none; }
+}
+
+/* TABLET: bild 1 kvadrat + bild 2 halv bredd, samma höjd */
+@media (min-width: 600px) and (max-width: 999px) {
   nav { padding: 14px 24px; }
   .hero { padding: 60px 24px 40px; }
   .divider { margin: 0 24px 40px; }
@@ -207,53 +223,38 @@ footer {
   .images {
     grid-template-columns: 2fr 1fr;
   }
-
-  .images img:first-child {
-    aspect-ratio: 1/1;
-  }
-
   .img-second {
+    display: block;
     aspect-ratio: unset;
     height: 100%;
-    display: block;
+    object-fit: cover;
   }
-
   .img-third { display: none; }
 }
 
-/* MOBILE */
-@media (max-width: 600px) {
-  nav { padding: 14px 20px; }
-  .nav-links { display: none; }
-  .hero { padding: 48px 20px 32px; }
-  .divider { margin: 0 20px 32px; }
-  .portfolio-label { padding: 0 20px 20px; }
-  .projects { padding: 0 20px; }
-  footer { padding: 40px 20px; }
-
-  .images {
-    grid-template-columns: 1fr 50px;
-  }
-
-  .images img:first-child { aspect-ratio: 1/1; }
-  .img-second { display: block; height: 100%; aspect-ratio: unset; }
-  .img-third { display: none; }
-
-  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
-}
-
-/* DESKTOP: two squares + thin third */
+/* DESKTOP: bild 1 + bild 2 kvadratiska, bild 3 halv bredd samma höjd */
 @media (min-width: 1000px) {
+  nav { padding: 14px 40px; }
+  .hero { padding: 80px 40px 60px; }
+  .divider { margin: 0 40px 48px; }
+  .portfolio-label { padding: 0 40px 32px; }
+  .projects { padding: 0 40px; }
+  footer { padding: 60px 40px; }
+  .footer-grid { grid-template-columns: 1fr 1fr 1fr; }
+
   .images {
-    grid-template-columns: 1fr 1fr 120px;
+    grid-template-columns: 1fr 1fr 0.5fr;
   }
-
-  .images img { aspect-ratio: 1/1; }
-
+  .img-second {
+    display: block;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+  }
   .img-third {
     display: block;
     aspect-ratio: unset;
     height: 100%;
+    object-fit: cover;
   }
 }
 
