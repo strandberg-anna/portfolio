@@ -129,29 +129,19 @@
   }
 
   .project {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2px;
-    margin-bottom: 2px;
+    display: flex;
+    flex-direction: column;
     border-top: 1px solid var(--gray-border);
-    padding-top: 32px;
+    padding-top: 0;
     margin-bottom: 64px;
   }
 
-  /* Desktop: 3 images */
-  .project.three-col .images {
-    grid-column: 1 / 2;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 2px;
-  }
-
-  /* Tablet & mobile: 2 images shown */
+  /* Images row */
   .project .images {
-    grid-column: 1 / 2;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2px;
+    gap: 3px;
+    width: 100%;
   }
 
   .project .images img {
@@ -164,16 +154,14 @@
 
   .project .images img:hover { opacity: 0.88; }
 
-  /* Hide third image on tablet/mobile, show on desktop */
+  /* Hide third image by default, show on desktop */
   .project .images .img-third { display: none; }
 
+  /* Meta below images */
   .project .meta {
-    grid-column: 2 / 3;
-    padding: 0 0 0 48px;
+    padding: 20px 0 0;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    padding-top: 4px;
   }
 
   .project .meta .label {
@@ -182,7 +170,7 @@
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--gray-mid);
-    margin-bottom: 4px;
+    margin-bottom: 6px;
   }
 
   .project .meta .label span {
@@ -192,25 +180,19 @@
 
   .project .meta h3 {
     font-family: var(--sans);
-    font-size: clamp(14px, 1.6vw, 17px);
+    font-size: clamp(15px, 1.5vw, 18px);
     font-weight: 500;
-    margin-bottom: 4px;
+    margin-bottom: 12px;
     letter-spacing: -0.01em;
-  }
-
-  .project .meta .role {
-    font-size: 13px;
-    color: var(--gray-mid);
-    margin-bottom: 20px;
-    font-weight: 300;
+    max-width: 600px;
   }
 
   .project .meta p {
     font-size: 14px;
-    line-height: 1.7;
-    color: #444;
-    margin-bottom: 24px;
-    max-width: 360px;
+    line-height: 1.75;
+    color: #555;
+    margin-bottom: 20px;
+    max-width: 560px;
   }
 
   .project .meta a.see-more {
@@ -280,24 +262,9 @@
 
   /* ── TABLET ── */
   @media (max-width: 900px) {
-    .project {
-      grid-template-columns: 1fr;
-    }
-
-    .project .images {
-      grid-column: 1;
-      grid-template-columns: 1fr 1fr;
-    }
-
-    .project .meta {
-      grid-column: 1;
-      padding: 24px 0 0;
-    }
-
     .footer-grid {
       grid-template-columns: 1fr 1fr;
     }
-
     .footer-col:last-child {
       grid-column: 1 / -1;
     }
@@ -328,8 +295,8 @@
   }
 
   /* ── DESKTOP: show 3 images ── */
-  @media (min-width: 1100px) {
-    .project.three-col .images {
+  @media (min-width: 900px) {
+    .project .images {
       grid-template-columns: 1fr 1fr 1fr;
     }
 
@@ -479,7 +446,7 @@
       <h4>Contact</h4>
       <p>
         +46 733 04 50 30<br>
-        <a href="mailto:strandberg.anna@gmail.com">strandberg.anna@gmail.com</a>
+        <a href="/cdn-cgi/l/email-protection#97e4e3e5f6f9f3f5f2e5f0b9f6f9f9f6d7f0faf6fefbb9f4f8fa"><span class="__cf_email__" data-cfemail="fe8d8a8c9f909a9c9b8c99d09f90909fbe99939f9792d09d9193">[email&#160;protected]</span></a>
       </p>
     </div>
     <div class="footer-col">
@@ -490,20 +457,9 @@
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // Scroll-triggered fade-in for project cards
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
       if (entry.isIntersecting) {
-        entry.target.style.transitionDelay = '0s';
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.08 });
-
-  document.querySelectorAll('.project').forEach(el => observer.observe(el));
-</script>
-
-</body>
-</html>
+        entry.target.style.transi
