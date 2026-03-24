@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anna Strandberg</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #0e0e0e;
+    --white: #ffffff;
+    --gray-light: #f5f5f3;
+    --gray-mid: #999;
+    --gray-border: #e0e0dc;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'DM Sans', Helvetica, sans-serif;
+    --max: 1200px;
+    --pad-x: clamp(20px, 5vw, 80px);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    font-weight: 300;
+    color: var(--black);
+    background: var(--white);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--white);
+    border-bottom: 1px solid var(--gray-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px var(--pad-x);
+  }
+
+  .nav-name {
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    color: var(--black);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--black);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: opacity 0.2s;
+  }
+
+  .nav-links a:hover { opacity: 0.45; }
+
+  /* ── HERO ── */
+  .hero {
+    padding: clamp(60px, 10vw, 120px) var(--pad-x) clamp(40px, 6vw, 80px);
+    max-width: var(--max);
+    margin: 0 auto;
+  }
+
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(36px, 6vw, 80px);
+    font-weight: 400;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    max-width: 780px;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gray-mid);
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 var(--pad-x);
+  }
+
+  .divider hr {
+    border: none;
+    border-top: 1px solid var(--gray-border);
+    margin-bottom: clamp(32px, 5vw, 64px);
+  }
+
+  /* ── PORTFOLIO HEADER ── */
+  .portfolio-header {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 var(--pad-x) 32px;
+  }
+
+  .portfolio-header h2 {
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gray-mid);
+  }
+
+  /* ── PROJECTS ── */
+  .projects {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 var(--pad-x);
+  }
+
+  .project {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-bottom: 2px;
+    border-top: 1px solid var(--gray-border);
+    padding-top: 32px;
+    margin-bottom: 64px;
+  }
+
+  /* Desktop: 3 images */
+  .project.three-col .images {
+    grid-column: 1 / 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2px;
+  }
+
+  /* Tablet & mobile: 2 images shown */
+  .project .images {
+    grid-column: 1 / 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+  }
+
+  .project .images img {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.3s;
+  }
+
+  .project .images img:hover { opacity: 0.88; }
+
+  /* Hide third image on tablet/mobile, show on desktop */
+  .project .images .img-third { display: none; }
+
+  .project .meta {
+    grid-column: 2 / 3;
+    padding: 0 0 0 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 4px;
+  }
+
+  .project .meta .label {
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gray-mid);
+    margin-bottom: 4px;
+  }
+
+  .project .meta .label span {
+    color: var(--black);
+    font-weight: 500;
+  }
+
+  .project .meta h3 {
+    font-family: var(--sans);
+    font-size: clamp(14px, 1.6vw, 17px);
+    font-weight: 500;
+    margin-bottom: 4px;
+    letter-spacing: -0.01em;
+  }
+
+  .project .meta .role {
+    font-size: 13px;
+    color: var(--gray-mid);
+    margin-bottom: 20px;
+    font-weight: 300;
+  }
+
+  .project .meta p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #444;
+    margin-bottom: 24px;
+    max-width: 360px;
+  }
+
+  .project .meta a.see-more {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--black);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    letter-spacing: 0.01em;
+    transition: gap 0.2s;
+  }
+
+  .project .meta a.see-more:hover { gap: 10px; }
+
+  .project .meta a.see-more::after {
+    content: '→';
+    font-size: 14px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--gray-border);
+    margin-top: 80px;
+    padding: clamp(48px, 6vw, 80px) var(--pad-x);
+    max-width: var(--max);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 48px;
+  }
+
+  .footer-col h4 {
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gray-mid);
+    margin-bottom: 16px;
+  }
+
+  .footer-col p,
+  .footer-col address {
+    font-size: 14px;
+    font-style: normal;
+    line-height: 1.8;
+    color: var(--black);
+    font-weight: 300;
+  }
+
+  .footer-col a {
+    display: block;
+    font-size: 14px;
+    color: var(--black);
+    text-decoration: none;
+    line-height: 2;
+    font-weight: 300;
+    transition: opacity 0.2s;
+  }
+
+  .footer-col a:hover { opacity: 0.45; }
+
+  /* ── TABLET ── */
+  @media (max-width: 900px) {
+    .project {
+      grid-template-columns: 1fr;
+    }
+
+    .project .images {
+      grid-column: 1;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .project .meta {
+      grid-column: 1;
+      padding: 24px 0 0;
+    }
+
+    .footer-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .footer-col:last-child {
+      grid-column: 1 / -1;
+    }
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 600px) {
+    .nav-links { display: none; }
+
+    .project .images {
+      grid-template-columns: 1fr;
+    }
+
+    .project .images img {
+      aspect-ratio: 4/3;
+    }
+
+    .project .images .img-second { display: none; }
+
+    .footer-grid {
+      grid-template-columns: 1fr;
+      gap: 36px;
+    }
+
+    .footer-col:last-child {
+      grid-column: 1;
+    }
+  }
+
+  /* ── DESKTOP: show 3 images ── */
+  @media (min-width: 1100px) {
+    .project.three-col .images {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .project .images .img-third {
+      display: block;
+    }
+  }
+
+  /* ── FADE-IN ANIMATION ── */
+  .project {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .project.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  .hero h1 {
+    opacity: 0;
+    transform: translateY(16px);
+    animation: fadeUp 0.8s ease 0.1s forwards;
+  }
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-name">Anna Strandberg</a>
+  <ul class="nav-links">
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Hi, I'm Anna Strandberg, a Stockholm&#8209;based creative working with design, content, and photography.</h1>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="portfolio-header">
+    <h2>My portfolio</h2>
+  </div>
+
+  <div class="projects">
+
+    <!-- Project 1: MOVS -->
+    <article class="project three-col">
+      <div class="images">
+        <img src="movs-1.jpg" alt="MOVS project image 1" onerror="this.style.background='#e8e6e1';this.removeAttribute('src')">
+        <img class="img-second" src="movs-2.jpg" alt="MOVS project image 2" onerror="this.style.background='#d5d3ce';this.removeAttribute('src')">
+        <img class="img-third" src="movs-3.jpg" alt="MOVS project image 3" onerror="this.style.background='#c2c0bb';this.removeAttribute('src')">
+      </div>
+      <div class="meta">
+        <p class="label">Work &nbsp;<span>MOVS</span></p>
+        <h3>Graphic designer, content manager and photographer</h3>
+        <p>I work across design, content, and photography, shaping visual communication for digital and physical platforms. My role blends creative direction with hands-on production, from campaigns and social media to product imagery and brand expression.</p>
+        <a href="#" class="see-more">See work</a>
+      </div>
+    </article>
+
+    <!-- Project 2: Anna Strandberg Design -->
+    <article class="project three-col">
+      <div class="images">
+        <img src="asd-1.jpg" alt="Anna Strandberg Design image 1" onerror="this.style.background='#dedad4';this.removeAttribute('src')">
+        <img class="img-second" src="asd-2.jpg" alt="Anna Strandberg Design image 2" onerror="this.style.background='#ccc9c3';this.removeAttribute('src')">
+        <img class="img-third" src="asd-3.jpg" alt="Anna Strandberg Design image 3" onerror="this.style.background='#b8b5af';this.removeAttribute('src')">
+      </div>
+      <div class="meta">
+        <p class="label">Work &nbsp;<span>Anna Strandberg Design</span></p>
+        <h3>Knitwear Designer &amp; Pattern Writer</h3>
+        <p>I design knitwear and develop patterns with a strong focus on texture, form, and storytelling. My work has been published in international knitting magazines, with a book publication on the way.</p>
+        <a href="#" class="see-more">See work</a>
+      </div>
+    </article>
+
+    <!-- Project 3: Kombispel -->
+    <article class="project three-col">
+      <div class="images">
+        <img src="kombispel-1.jpg" alt="Kombispel image 1" onerror="this.style.background='#c8c5be';this.removeAttribute('src')">
+        <img class="img-second" src="kombispel-2.jpg" alt="Kombispel image 2" onerror="this.style.background='#b5b2ab';this.removeAttribute('src')">
+        <img class="img-third" src="kombispel-3.jpg" alt="Kombispel image 3" onerror="this.style.background='#a2a09a';this.removeAttribute('src')">
+      </div>
+      <div class="meta">
+        <p class="label">Work &nbsp;<span>Kombispel</span></p>
+        <h3>Graphic Designer &amp; Art Director</h3>
+        <p>I worked with branding, campaigns, and visual concepts across multiple channels. My role included both design execution and art direction, developing clear and engaging communication.</p>
+        <a href="#" class="see-more">See Project</a>
+      </div>
+    </article>
+
+    <!-- Project 4: Product photos -->
+    <article class="project three-col">
+      <div class="images">
+        <img src="product-1.jpg" alt="Product photos image 1" onerror="this.style.background='#e0ddd7';this.removeAttribute('src')">
+        <img class="img-second" src="product-2.jpg" alt="Product photos image 2" onerror="this.style.background='#cdc9c2';this.removeAttribute('src')">
+        <img class="img-third" src="product-3.jpg" alt="Product photos image 3" onerror="this.style.background='#b9b6af';this.removeAttribute('src')">
+      </div>
+      <div class="meta">
+        <p class="label">Project &nbsp;<span>Product photos</span></p>
+        <h3>Digital Rebrand &amp; User Experience</h3>
+        <p>We created a digital catalog, focusing on refined typography and immersive visuals. We elevated the perceived value of Anders' furniture and created a seamless browsing experience.</p>
+        <a href="#" class="see-more">See Project</a>
+      </div>
+    </article>
+
+    <!-- Project 5: Dandelion Yarns -->
+    <article class="project three-col">
+      <div class="images">
+        <img src="dandelion-1.jpg" alt="Dandelion Yarns image 1" onerror="this.style.background='#dcd8d0';this.removeAttribute('src')">
+        <img class="img-second" src="dandelion-2.jpg" alt="Dandelion Yarns image 2" onerror="this.style.background='#c8c4bc';this.removeAttribute('src')">
+        <img class="img-third" src="dandelion-3.jpg" alt="Dandelion Yarns image 3" onerror="this.style.background='#b4b0a8';this.removeAttribute('src')">
+      </div>
+      <div class="meta">
+        <p class="label">Work &nbsp;<span>Dandelion Yarns</span></p>
+        <h3>Founder &amp; Creative</h3>
+        <p>I founded and ran a hand-dyed yarn brand, creating color stories and collections from concept to finished product. The work combined craftsmanship, visual identity, and community-building through a strong presence on Instagram.</p>
+        <a href="#" class="see-more">See Project</a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h4>Address</h4>
+      <address>
+        Värtavägen 23<br>
+        115 53 Stockholm
+      </address>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <p>
+        +46 733 04 50 30<br>
+        <a href="mailto:strandberg.anna@gmail.com">strandberg.anna@gmail.com</a>
+      </p>
+    </div>
+    <div class="footer-col">
+      <h4>Social</h4>
+      <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Scroll-triggered fade-in for project cards
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        entry.target.style.transitionDelay = '0s';
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.project').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
