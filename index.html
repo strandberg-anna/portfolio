@@ -187,7 +187,7 @@ footer {
   line-height: 2;
 }
 
-/* MOBILE: bild 1 kvadrat + smal sliver av bild 2 */
+/* MOBILE: bild 1 kvadrat + smal sliver av bild 3 */
 @media (max-width: 599px) {
   nav { padding: 14px 20px; }
   .nav-links { display: none; }
@@ -201,16 +201,16 @@ footer {
   .images {
     grid-template-columns: 1fr 48px;
   }
-  .img-second {
+  .img-second { display: none; }
+  .img-third {
     display: block;
     aspect-ratio: unset;
     height: 100%;
     object-fit: cover;
   }
-  .img-third { display: none; }
 }
 
-/* TABLET: bild 1 kvadrat + bild 2 halv bredd, samma höjd */
+/* TABLET: bild 1 kvadrat + bild 3 halv bredd, samma höjd */
 @media (min-width: 600px) and (max-width: 999px) {
   nav { padding: 14px 24px; }
   .hero { padding: 60px 24px 40px; }
@@ -223,13 +223,13 @@ footer {
   .images {
     grid-template-columns: 2fr 1fr;
   }
-  .img-second {
+  .img-second { display: none; }
+  .img-third {
     display: block;
     aspect-ratio: unset;
     height: 100%;
     object-fit: cover;
   }
-  .img-third { display: none; }
 }
 
 /* DESKTOP: bild 1 + bild 2 kvadratiska, bild 3 halv bredd samma höjd */
