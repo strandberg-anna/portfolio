@@ -200,17 +200,21 @@ footer {
 
   .images {
     grid-template-columns: 1fr 48px;
+    grid-template-rows: auto;
   }
-  .img-second { display: none; }
+  .images img:first-child { grid-column: 1; grid-row: 1; }
+  .img-second { display: none !important; }
   .img-third {
     display: block;
+    grid-column: 2;
+    grid-row: 1;
     aspect-ratio: unset;
     height: 100%;
     object-fit: cover;
   }
 }
 
-/* TABLET: bild 1 kvadrat + bild 3 halv bredd, samma höjd */
+/* TABLET: bild 1 kvadrat + bild 3 halv bredd, full höjd */
 @media (min-width: 600px) and (max-width: 999px) {
   nav { padding: 14px 24px; }
   .hero { padding: 60px 24px 40px; }
@@ -222,10 +226,14 @@ footer {
 
   .images {
     grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto;
   }
-  .img-second { display: none; }
+  .images img:first-child { grid-column: 1; grid-row: 1; }
+  .img-second { display: none !important; }
   .img-third {
     display: block;
+    grid-column: 2;
+    grid-row: 1;
     aspect-ratio: unset;
     height: 100%;
     object-fit: cover;
