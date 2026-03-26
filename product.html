@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product Photography — Anna Strandberg</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'DM Sans', Helvetica, sans-serif;
+  font-weight: 300;
+  color: #0e0e0e;
+  background: #ffffff;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* NAV */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #fff;
+  border-bottom: 1px solid #e0e0dc;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 40px;
+}
+.nav-name { font-size: 13px; font-weight: 400; color: #0e0e0e; text-decoration: none; }
+.nav-links { display: flex; gap: 28px; list-style: none; }
+.nav-links a { font-size: 13px; color: #0e0e0e; text-decoration: none; }
+
+/* HEADER — desktop: titel vänster, text höger */
+.project-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  padding: 60px 40px 48px;
+}
+
+.project-header .left .label {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #999;
+  margin-bottom: 12px;
+}
+
+.project-header .left h1 {
+  font-size: clamp(32px, 4vw, 56px);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.project-header .right {
+  padding-top: 8px;
+}
+
+.project-header .right .role {
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  color: #0e0e0e;
+}
+
+.project-header .right p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #444;
+}
+
+/* CONTENT */
+.content {
+  padding: 0 40px 80px;
+}
+
+img { display: block; width: 100%; }
+
+.img-full {
+  margin-bottom: 3px;
+  object-fit: cover;
+}
+
+.img-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3px;
+  margin-bottom: 3px;
+}
+
+.img-row-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 3px;
+  margin-bottom: 3px;
+}
+
+.img-row-2 img,
+.img-row-3 img {
+  object-fit: cover;
+  width: 100%;
+  aspect-ratio: 3/4;
+}
+
+/* FOOTER */
+footer {
+  border-top: 1px solid #e0e0dc;
+  padding: 60px 40px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 48px;
+}
+
+.footer-col h4 {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #999;
+  margin-bottom: 16px;
+}
+
+.footer-col p,
+.footer-col address {
+  font-size: 14px;
+  font-style: normal;
+  line-height: 1.8;
+  color: #0e0e0e;
+}
+
+.footer-col a {
+  display: block;
+  font-size: 14px;
+  color: #0e0e0e;
+  text-decoration: none;
+  line-height: 2;
+}
+
+/* ── TABLET ── */
+@media (min-width: 600px) and (max-width: 999px) {
+  nav { padding: 14px 24px; }
+
+  .project-header {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 40px 24px 36px;
+  }
+
+  .content { padding: 0 24px 60px; }
+
+  .img-row-3 {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  footer { padding: 48px 24px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* ── MOBILE ── */
+@media (max-width: 599px) {
+  nav { padding: 14px 20px; }
+  .nav-links { display: none; }
+
+  .project-header {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 32px 20px 28px;
+  }
+
+  .content { padding: 0 20px 48px; }
+
+  .img-row-2,
+  .img-row-3 {
+    grid-template-columns: 1fr;
+  }
+
+  footer { padding: 40px 20px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+}
+
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-name">Anna Strandberg</a>
+  <ul class="nav-links">
+    <li><a href="index.html#portfolio">Portfolio</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<header class="project-header">
+  <div class="left">
+    <p class="label">Work</p>
+    <h1>Product<br>Photography</h1>
+  </div>
+  <div class="right">
+    <p class="role">Studio &amp; Lifestyle</p>
+    <p>I work with product photography across both studio settings and real-life environments, capturing a wide range of subjects — from small, tactile materials like yarn and textiles to larger products in use. My approach is grounded in a sensitivity to light, texture, and color, with an emphasis on creating images that feel both natural and considered.<br><br>Whether working in a controlled studio setup or on location with people and surroundings, I aim to balance clarity with atmosphere. The result is imagery that not only presents the product, but also adds a sense of context, mood, and visual storytelling.</p>
+  </div>
+</header>
+
+<div class="content">
+
+  <!-- Rad 1: två scootrar -->
+  <div class="img-row-2">
+    <img src="legend_maya_denim.jpg" alt="Legend Maya Denim">
+    <img src="legend.jpg" alt="Legend">
+  </div>
+
+  <!-- Rad 2: Cannondale full bredd -->
+  <img class="img-full" src="Cannondale.jpg" alt="Cannondale">
+
+  <!-- Rad 3: tre porträtt -->
+  <div class="img-row-3">
+    <img src="niklas_hatt.JPG" alt="Niklas hatt">
+    <img src="niklas_full.JPG" alt="Niklas full">
+    <img src="nicole3.JPG" alt="Nicole">
+  </div>
+
+  <!-- Rad 4: Nicole & Chris full bredd -->
+  <img class="img-full" src="nicole2.jpg" alt="Nicole och Chris">
+
+</div>
+
+<footer id="contact">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h4>Office</h4>
+      <address>
+        Värtavägen 23<br>
+        115 53 Stockholm
+      </address>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <p>
+        +46 733 04 50 30<br>
+        <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="472629292634333526292325223520072a226924282a">[email&#160;protected]</a>
+      </p>
+    </div>
+    <div class="footer-col">
+      <h4>Social</h4>
+      <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+    
