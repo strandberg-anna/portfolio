@@ -309,9 +309,7 @@ footer {
 <nav>
   <a href="index.html" class="nav-name">Anna Strandberg</a>
   <button class="hamburger" onclick="toggleMenu()" aria-label="Meny">
-    <span></span>
-    <span></span>
-    <span></span>
+    <span></span><span></span><span></span>
   </button>
   <div class="nav-dropdown" id="nav-dropdown">
     <a href="movs.html">MOVS</a>
@@ -320,7 +318,6 @@ footer {
     <a href="product.html">Product Photography</a>
     <a href="dandelion.html">Dandelion Yarns</a>
     <a href="about.html">About me</a>
-    <a href="#contact">Contact</a>
   </div>
 </nav>
 
@@ -417,13 +414,9 @@ footer {
 </footer>
 
 <script>
-function toggleMenu() {
-  document.getElementById('nav-dropdown').classList.toggle('open');
-}
+function toggleMenu() { document.getElementById('nav-dropdown').classList.toggle('open'); }
 document.addEventListener('click', function(e) {
-  if (!e.target.closest('nav')) {
-    document.getElementById('nav-dropdown').classList.remove('open');
-  }
+  if (!e.target.closest('nav')) document.getElementById('nav-dropdown').classList.remove('open');
 });
 </script>
 
