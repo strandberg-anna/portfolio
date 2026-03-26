@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kombispel — Anna Strandberg</title>
+<title>Dandelion Yarns — Anna Strandberg</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -35,7 +35,7 @@ nav {
 
 
 
-/* HEADER — desktop: titel vänster, text höger */
+/* HEADER */
 .project-header {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -66,7 +66,7 @@ nav {
 .project-header .right .role {
   font-size: 13px;
   font-weight: 500;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   color: #0e0e0e;
 }
 
@@ -95,9 +95,18 @@ img { display: block; width: 100%; }
   margin-bottom: 3px;
 }
 
-.img-row-2 img {
+.img-row-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 3px;
+  margin-bottom: 3px;
+}
+
+.img-row-2 img,
+.img-row-3 img {
   object-fit: cover;
   width: 100%;
+  aspect-ratio: 3/4;
 }
 
 /* FOOTER */
@@ -165,7 +174,8 @@ footer {
 
   .content { padding: 0 20px 48px; }
 
-  .img-row-2 {
+  .img-row-2,
+  .img-row-3 {
     grid-template-columns: 1fr;
   }
 
@@ -204,35 +214,30 @@ footer {
 <header class="project-header">
   <div class="left">
     <p class="label">Work</p>
-    <h1>Kombispel<br>(2014 – 2016)</h1>
+    <h1>Dandelion Yarns</h1>
   </div>
   <div class="right">
-    <p class="role">Graphic Designer &amp; Art Director</p>
-    <p>At Kombispel, I worked with graphic design and art direction across a range of projects, from campaigns and print material to digital communication. The work involved developing visual concepts as well as refining them into clear and consistent design across different formats. Working within an established brand, I focused on creating communication that felt both engaging and accessible, balancing creativity with structure. The role gave me a strong foundation in shaping cohesive visual identities and adapting them across multiple channels.</p>
+    <p class="role">Founder &amp; Creative</p>
+    <p>Dandelion Yarns was my own hand-dyed yarn brand, where I developed everything from color palettes and collections to visual identity and communication. The work was rooted in a hands-on, material-driven process, where dyeing, texture, and color were central to each collection.<br><br>Alongside the physical making, I built a visual world around the brand through photography and storytelling, primarily on Instagram. Over time, it grew into an engaged community, where atmosphere, color, and a strong sense of identity shaped how the work was experienced.</p>
   </div>
 </header>
 
 <div class="content">
 
-  <!-- Rad 1: Affisch gladje + Paskannons -->
+  <!-- Rad 1: två bilder -->
   <div class="img-row-2">
-    <img src="Affisch_gladje.jpg" alt="Affisch Glädje">
-    <img src="paskannons.jpg" alt="Påskannons">
+    <img src="DSC_3472.jpg" alt="Dandelion Yarns garn">
+    <img src="julklapp.jpg" alt="Julklapp">
   </div>
 
-  <!-- Rad 2: Almanacka full bredd -->
-  <img class="img-full" src="Almanacka-2016.jpg" alt="Almanacka 2016">
+  <!-- Rad 2: färggarn full bredd -->
+  <img class="img-full" src="IMG_9233.JPG" alt="Färggarn på kudde">
 
-  <!-- Rad 3: Annons kombi + karta -->
-  <div class="img-row-2">
-    <img src="Annons_kombi_1601.jpg" alt="Annons Kombispel">
-    <img src="karta.jpg" alt="Karta">
-  </div>
-
-  <!-- Rad 4: Jackpotten + jackpotthjulet -->
-  <div class="img-row-2">
-    <img src="Jackpotten_ver2.jpg" alt="Jackpotten">
-    <img src="jackpotthjulet.jpg" alt="Jackpotthjulet">
+  <!-- Rad 3: tre bilder -->
+  <div class="img-row-3">
+    <img src="presentkort.jpg" alt="Presentkort">
+    <img src="IMG_9232.JPG" alt="Garndetalj">
+    <img src="IMG_8283.jpg" alt="Garnsamling">
   </div>
 
 </div>
@@ -250,10 +255,20 @@ footer {
       <h4>Contact</h4>
       <p>
         +46 733 04 50 30<br>
-        <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="ed8c83838c9e999f8c83898f889f8aad8088c38e8280">[email&#160;protected]</a>
+        annastrandberg@me.com
       </p>
     </div>
     <div class="footer-col">
       <h4>Social</h4>
       <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
-    
+      <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu() { document.getElementById("nav-dropdown").classList.toggle("open"); }
+document.addEventListener("click", function(e) { if (!e.target.closest("nav")) document.getElementById("nav-dropdown").classList.remove("open"); });
+</script>
+</body>
+</html>

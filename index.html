@@ -19,7 +19,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* NAV */
+/* ── HAMBURGER NAV ── */
 nav {
   position: sticky;
   top: 0;
@@ -39,17 +39,53 @@ nav {
   text-decoration: none;
 }
 
-.nav-links {
+.hamburger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
   display: flex;
-  gap: 28px;
-  list-style: none;
+  flex-direction: column;
+  gap: 5px;
 }
 
-.nav-links a {
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: #0e0e0e;
+  transition: opacity 0.2s;
+}
+
+.hamburger:hover span { opacity: 0.45; }
+
+/* Dropdown menu */
+.nav-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 40px;
+  background: #fff;
+  border: 1px solid #e0e0dc;
+  min-width: 200px;
+  z-index: 200;
+}
+
+.nav-dropdown.open { display: block; }
+
+.nav-dropdown a {
+  display: block;
   font-size: 13px;
+  font-weight: 400;
   color: #0e0e0e;
   text-decoration: none;
+  padding: 14px 20px;
+  border-bottom: 1px solid #e0e0dc;
+  transition: background 0.15s;
 }
+
+.nav-dropdown a:last-child { border-bottom: none; }
+.nav-dropdown a:hover { background: #f5f5f3; }
 
 /* HERO */
 .hero {
@@ -271,11 +307,20 @@ footer {
 <body>
 
 <nav>
-  <a href="#" class="nav-name">Anna Strandberg</a>
-  <ul class="nav-links">
-    <li><a href="#portfolio">Portfolio</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
+  <a href="index.html" class="nav-name">Anna Strandberg</a>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Meny">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <div class="nav-dropdown" id="nav-dropdown">
+    <a href="movs.html">MOVS</a>
+    <a href="knit.html">Anna Strandberg Design</a>
+    <a href="kombispel.html">Kombispel</a>
+    <a href="product.html">Product Photography</a>
+    <a href="dandelion.html">Dandelion Yarns</a>
+    <a href="#contact">Contact</a>
+  </div>
 </nav>
 
 <section class="hero">
@@ -298,19 +343,7 @@ footer {
       <p class="meta-label">Work &nbsp;<strong>MOVS</strong></p>
       <h3 class="meta-title">Graphic designer, content manager and photographer</h3>
       <p class="meta-text">I work across design, content, and photography, shaping visual communication for digital and physical platforms. My role blends creative direction with hands-on production, from campaigns and social media to product imagery and brand expression.</p>
-      <a href="#" class="meta-link">See work →</a>
-    </article>
-
-    <article class="project">
-      <div class="images">
-        <img src="Luna.jpg" alt="Anna Strandberg Design">
-        <img class="img-second" src="soe.jpg" alt="Anna Strandberg Design">
-        <img class="img-third" src="flora.jpg" alt="Anna Strandberg Design">
-      </div>
-      <p class="meta-label">Work &nbsp;<strong>Anna Strandberg Design</strong></p>
-      <h3 class="meta-title">Knitwear Designer &amp; Pattern Writer</h3>
-      <p class="meta-text">I design knitwear and develop patterns with a strong focus on texture, form, and storytelling. My work has been published in international knitting magazines, with a book publication on the way.</p>
-      <a href="#" class="meta-link">See work →</a>
+      <a href="movs.html" class="meta-link">See work →</a>
     </article>
 
     <article class="project">
@@ -322,7 +355,7 @@ footer {
       <p class="meta-label">Work &nbsp;<strong>Kombispel</strong></p>
       <h3 class="meta-title">Graphic Designer &amp; Art Director</h3>
       <p class="meta-text">I worked with branding, campaigns, and visual concepts across multiple channels. My role included both design execution and art direction, developing clear and engaging communication.</p>
-      <a href="#" class="meta-link">See Project →</a>
+      <a href="kombispel.html" class="meta-link">See Project →</a>
     </article>
 
     <article class="project">
@@ -334,7 +367,7 @@ footer {
       <p class="meta-label">Work &nbsp;<strong>Product Photography</strong></p>
       <h3 class="meta-title">Studio &amp; Lifestyle</h3>
       <p class="meta-text">Working across studio and environmental photography, I capture products with a focus on texture, light, and presence. From small, tactile objects to products in use, I aim to create imagery that feels both considered and alive.</p>
-      <a href="#" class="meta-link">See Project →</a>
+      <a href="product.html" class="meta-link">See Project →</a>
     </article>
 
     <article class="project">
@@ -346,7 +379,19 @@ footer {
       <p class="meta-label">Work &nbsp;<strong>Dandelion Yarns</strong></p>
       <h3 class="meta-title">Founder &amp; Creative</h3>
       <p class="meta-text">I founded and ran a hand-dyed yarn brand, creating color stories and collections from concept to finished product. The work combined craftsmanship, visual identity, and community-building through a strong presence on Instagram.</p>
-      <a href="#" class="meta-link">See Project →</a>
+      <a href="dandelion.html" class="meta-link">See Project →</a>
+    </article>
+
+    <article class="project">
+      <div class="images">
+        <img src="Luna.jpg" alt="Anna Strandberg Design">
+        <img class="img-second" src="soe.jpg" alt="Anna Strandberg Design">
+        <img class="img-third" src="flora.jpg" alt="Anna Strandberg Design">
+      </div>
+      <p class="meta-label">Work &nbsp;<strong>Anna Strandberg Design</strong></p>
+      <h3 class="meta-title">Knitwear Designer &amp; Pattern Writer</h3>
+      <p class="meta-text">I design knitwear and develop patterns with a strong focus on texture, form, and storytelling. My work has been published in international knitting magazines, with a book publication on the way.</p>
+      <a href="knit.html" class="meta-link">See work →</a>
     </article>
 
   </div>
@@ -371,3 +416,21 @@ footer {
     <div class="footer-col">
       <h4>Social</h4>
       <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu() {
+  document.getElementById('nav-dropdown').classList.toggle('open');
+}
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('nav')) {
+    document.getElementById('nav-dropdown').classList.remove('open');
+  }
+});
+</script>
+
+</body>
+</html>
