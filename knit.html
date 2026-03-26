@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Knit designs — Anna Strandberg</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'DM Sans', Helvetica, sans-serif;
+  font-weight: 300;
+  color: #0e0e0e;
+  background: #ffffff;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* NAV */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #fff;
+  border-bottom: 1px solid #e0e0dc;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 40px;
+}
+.nav-name { font-size: 13px; font-weight: 400; color: #0e0e0e; text-decoration: none; }
+.nav-links { display: flex; gap: 28px; list-style: none; }
+.nav-links a { font-size: 13px; color: #0e0e0e; text-decoration: none; }
+
+/* HEADER */
+.project-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  padding: 60px 40px 48px;
+}
+
+.project-header .left .label {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #999;
+  margin-bottom: 12px;
+}
+
+.project-header .left h1 {
+  font-size: clamp(32px, 4vw, 56px);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.project-header .right {
+  display: flex;
+  align-items: flex-start;
+  padding-top: 8px;
+}
+
+.project-header .right p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #444;
+  max-width: 480px;
+}
+
+/* CONTENT */
+.content {
+  padding: 0 40px 80px;
+}
+
+img { display: block; width: 100%; }
+
+/* Full width */
+.img-full {
+  margin-bottom: 3px;
+}
+
+/* Two equal */
+.img-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3px;
+  margin-bottom: 3px;
+}
+
+/* Three equal */
+.img-row-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 3px;
+  margin-bottom: 3px;
+}
+
+.img-row-2 img { aspect-ratio: 3/4; object-fit: cover; }
+.img-row-3 img { aspect-ratio: 3/4; object-fit: cover; }
+.img-full     { object-fit: cover; }
+
+/* FOOTER */
+footer {
+  border-top: 1px solid #e0e0dc;
+  padding: 60px 40px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 48px;
+}
+
+.footer-col h4 {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #999;
+  margin-bottom: 16px;
+}
+
+.footer-col p,
+.footer-col address {
+  font-size: 14px;
+  font-style: normal;
+  line-height: 1.8;
+  color: #0e0e0e;
+}
+
+.footer-col a {
+  display: block;
+  font-size: 14px;
+  color: #0e0e0e;
+  text-decoration: none;
+  line-height: 2;
+}
+
+/* ── TABLET ── */
+@media (min-width: 600px) and (max-width: 999px) {
+  nav { padding: 14px 24px; }
+
+  .project-header {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 40px 24px 36px;
+  }
+
+  .content { padding: 0 24px 60px; }
+
+  .img-row-3 {
+    grid-template-columns: 1fr 1fr;
+  }
+  .img-row-3 img:last-child {
+    grid-column: 1 / -1;
+    aspect-ratio: 16/9;
+  }
+
+  footer { padding: 48px 24px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* ── MOBILE ── */
+@media (max-width: 599px) {
+  nav { padding: 14px 20px; }
+  .nav-links { display: none; }
+
+  .project-header {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 32px 20px 28px;
+  }
+
+  .content { padding: 0 20px 48px; }
+
+  .img-row-2,
+  .img-row-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .img-row-2 img,
+  .img-row-3 img {
+    aspect-ratio: 3/4;
+  }
+
+  .img-row-3 img:last-child {
+    grid-column: 1;
+    aspect-ratio: 3/4;
+  }
+
+  footer { padding: 40px 20px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+}
+
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-name">Anna Strandberg</a>
+  <ul class="nav-links">
+    <li><a href="index.html#portfolio">Portfolio</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<header class="project-header">
+  <div class="left">
+    <p class="label">Work</p>
+    <h1>Knit designs<br>(2018 – present)</h1>
+  </div>
+  <div class="right">
+    <p>I create knitwear designs with a focus on texture, rhythm, and form, often starting from the material itself and letting the process guide the outcome. My work has been featured in publications such as Laine and Pom Pom Quarterly, as well as in collaborations with yarn brands. Each design is an exploration of how structure and softness can meet, shaped through careful attention to detail and a strong sense of expression.</p>
+  </div>
+</header>
+
+<div class="content">
+
+  <!-- Rad 1: två bilder -->
+  <div class="img-row-2">
+    <img src="Soe2.jpg" alt="Soe">
+    <img src="Soe3.jpg" alt="Soe">
+  </div>
+
+  <!-- Rad 2: full bredd -->
+  <img class="img-full" src="flora1.jpg" alt="Flora closeup">
+
+  <!-- Rad 3: tre bilder -->
+  <div class="img-row-3">
+    <img src="flora1.jpg" alt="Flora 1">
+    <img src="Flora2.jpg" alt="Flora 2">
+    <img src="flora3.jpg" alt="Flora 3">
+  </div>
+
+  <!-- Rad 4: två bilder -->
+  <div class="img-row-2">
+    <img src="Alstad1.jpg" alt="Alstad 1">
+    <img src="Alstad2.jpg" alt="Alstad 2">
+  </div>
+
+  <!-- Rad 5: full bredd -->
+  <img class="img-full" src="luna1.jpg" alt="Luna">
+
+</div>
+
+<footer id="contact">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h4>Office</h4>
+      <address>
+        Värtavägen 23<br>
+        115 53 Stockholm
+      </address>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <p>
+        +46 733 04 50 30<br>
+        <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c4a5aaaaa5b7b0b6a5aaa0a6a1b6a384a9a1eaa7aba9">[email&#160;protected]</a>
+      </p>
+    </div>
+    <div class="footer-col">
+      <h4>Social</h4>
+      <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+    
