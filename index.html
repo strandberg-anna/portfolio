@@ -302,12 +302,42 @@ footer {
   }
 }
 
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.lang-flags {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.flag-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-size: 18px;
+  line-height: 1;
+  opacity: 0.35;
+  transition: opacity 0.2s;
+}
+.flag-btn.active { opacity: 1; }
+.flag-btn:hover { opacity: 0.7; }
+
 </style>
 </head>
 <body>
 
 <nav>
-  <a href="index.html" class="nav-name">Anna Strandberg</a>
+  <div class="nav-left">
+    <a href="index.html" class="nav-name">Anna Strandberg</a>
+    <div class="lang-flags">
+      <button class="flag-btn active" onclick="setLang('sv')" id="flag-sv" title="Svenska">🇸🇪</button>
+      <button class="flag-btn" onclick="setLang('en')" id="flag-en" title="English">🇬🇧</button>
+    </div>
+  </div>
   <button class="hamburger" onclick="toggleMenu()" aria-label="Meny">
     <span></span><span></span><span></span>
   </button>
@@ -317,18 +347,18 @@ footer {
     <a href="kombispel.html">Kombispel</a>
     <a href="product.html">Product Photography</a>
     <a href="dandelion.html">Dandelion Yarns</a>
-    <a href="about.html">About me</a>
+    <a href="about.html" data-sv="Om mig" data-en="About me">Om mig</a>
   </div>
 </nav>
 
 <section class="hero">
-  <h1>Hi, I'm Anna Strandberg, a Stockholm-based creative working with design, content, and photography.</h1>
+  <h1 data-sv="Hej, jag är Anna Strandberg, en Stockholmsbaserad kreatör som arbetar med design, innehåll och foto." data-en="Hi, I'm Anna Strandberg, a Stockholm-based creative working with design, content, and photography.">Hej, jag är Anna Strandberg, en Stockholmsbaserad kreatör som arbetar med design, innehåll och foto.</h1>
 </section>
 
 <hr class="divider">
 
 <section id="portfolio">
-  <p class="portfolio-label">My portfolio</p>
+  <p class="portfolio-label" data-sv="Min portfolio" data-en="My portfolio">Min portfolio</p>
 
   <div class="projects">
 
@@ -338,10 +368,10 @@ footer {
         <img class="img-second" src="rollup.jpg" alt="MOVS rollup">
         <img class="img-third" src="elina.jpg" alt="MOVS elina">
       </div>
-      <p class="meta-label">Work &nbsp;<strong>MOVS</strong></p>
-      <h3 class="meta-title">Graphic designer, content manager and photographer</h3>
-      <p class="meta-text">I work across design, content, and photography, shaping visual communication for digital and physical platforms. My role blends creative direction with hands-on production, from campaigns and social media to product imagery and brand expression.</p>
-      <a href="movs.html" class="meta-link">See work →</a>
+      <p class="meta-label" data-sv="Uppdrag &nbsp;" data-en="Work &nbsp;">Uppdrag &nbsp;<strong>MOVS</strong></p>
+      <h3 class="meta-title" data-sv="Grafisk formgivare, innehållsansvarig och fotograf" data-en="Graphic designer, content manager and photographer">Grafisk formgivare, innehållsansvarig och fotograf</h3>
+      <p class="meta-text" data-sv="Jag arbetar med design, innehåll och foto och formar visuell kommunikation för digitala och fysiska plattformar. Min roll kombinerar kreativ ledning med praktisk produktion, från kampanjer och sociala medier till produktbilder och varumärkesuttryck." data-en="I work across design, content, and photography, shaping visual communication for digital and physical platforms. My role blends creative direction with hands-on production, from campaigns and social media to product imagery and brand expression.">Jag arbetar med design, innehåll och foto och formar visuell kommunikation för digitala och fysiska plattformar. Min roll kombinerar kreativ ledning med praktisk produktion, från kampanjer och sociala medier till produktbilder och varumärkesuttryck.</p>
+      <a href="movs.html" class="meta-link" data-sv="Se arbete →" data-en="See work →">Se arbete →</a>
     </article>
 
     <article class="project">
@@ -350,10 +380,10 @@ footer {
         <img class="img-second" src="tidning.jpg" alt="Kombispel">
         <img class="img-third" src="easter.jpg" alt="Kombispel">
       </div>
-      <p class="meta-label">Work &nbsp;<strong>Kombispel</strong></p>
-      <h3 class="meta-title">Graphic Designer &amp; Art Director</h3>
-      <p class="meta-text">I worked with branding, campaigns, and visual concepts across multiple channels. My role included both design execution and art direction, developing clear and engaging communication.</p>
-      <a href="kombispel.html" class="meta-link">See Project →</a>
+      <p class="meta-label" data-sv="Uppdrag &nbsp;" data-en="Work &nbsp;">Uppdrag &nbsp;<strong>Kombispel</strong></p>
+      <h3 class="meta-title" data-sv="Grafisk formgivare &amp; Art Director" data-en="Graphic Designer &amp; Art Director">Grafisk formgivare &amp; Art Director</h3>
+      <p class="meta-text" data-sv="Jag arbetade med varumärke, kampanjer och visuella koncept i flera kanaler. Min roll innefattade både formgivning och art direction, med fokus på tydlig och engagerande kommunikation." data-en="I worked with branding, campaigns, and visual concepts across multiple channels. My role included both design execution and art direction, developing clear and engaging communication.">Jag arbetade med varumärke, kampanjer och visuella koncept i flera kanaler. Min roll innefattade både formgivning och art direction, med fokus på tydlig och engagerande kommunikation.</p>
+      <a href="kombispel.html" class="meta-link" data-sv="Se projekt →" data-en="See Project →">Se projekt →</a>
     </article>
 
     <article class="project">
@@ -362,10 +392,10 @@ footer {
         <img class="img-second" src="chris.jpg" alt="Product photos">
         <img class="img-third" src="niklas.jpg" alt="Product photos">
       </div>
-      <p class="meta-label">Work &nbsp;<strong>Product Photography</strong></p>
-      <h3 class="meta-title">Studio &amp; Lifestyle</h3>
-      <p class="meta-text">Working across studio and environmental photography, I capture products with a focus on texture, light, and presence. From small, tactile objects to products in use, I aim to create imagery that feels both considered and alive.</p>
-      <a href="product.html" class="meta-link">See Project →</a>
+      <p class="meta-label" data-sv="Uppdrag &nbsp;" data-en="Work &nbsp;">Uppdrag &nbsp;<strong data-sv="Produktfoto" data-en="Product Photography">Produktfoto</strong></p>
+      <h3 class="meta-title" data-sv="Studio &amp; Livsstil" data-en="Studio &amp; Lifestyle">Studio &amp; Livsstil</h3>
+      <p class="meta-text" data-sv="Jag fotograferar produkter i studio och i verkliga miljöer med fokus på textur, ljus och närvaro. Från små hantverk till produkter i bruk — jag strävar efter bilder som känns både genomtänkta och levande." data-en="Working across studio and environmental photography, I capture products with a focus on texture, light, and presence. From small, tactile objects to products in use, I aim to create imagery that feels both considered and alive.">Jag fotograferar produkter i studio och i verkliga miljöer med fokus på textur, ljus och närvaro. Från små hantverk till produkter i bruk — jag strävar efter bilder som känns både genomtänkta och levande.</p>
+      <a href="product.html" class="meta-link" data-sv="Se projekt →" data-en="See Project →">Se projekt →</a>
     </article>
 
     <article class="project">
@@ -374,10 +404,10 @@ footer {
         <img class="img-second" src="garn.jpg" alt="Dandelion Yarns">
         <img class="img-third" src="display.jpg" alt="Dandelion Yarns">
       </div>
-      <p class="meta-label">Work &nbsp;<strong>Dandelion Yarns</strong></p>
-      <h3 class="meta-title">Founder &amp; Creative</h3>
-      <p class="meta-text">I founded and ran a hand-dyed yarn brand, creating color stories and collections from concept to finished product. The work combined craftsmanship, visual identity, and community-building through a strong presence on Instagram.</p>
-      <a href="dandelion.html" class="meta-link">See Project →</a>
+      <p class="meta-label" data-sv="Uppdrag &nbsp;" data-en="Work &nbsp;">Uppdrag &nbsp;<strong>Dandelion Yarns</strong></p>
+      <h3 class="meta-title" data-sv="Grundare &amp; Kreativ" data-en="Founder &amp; Creative">Grundare &amp; Kreativ</h3>
+      <p class="meta-text" data-sv="Jag grundade och drev ett eget varumärke för handfärgat garn, med färgberättelser och kollektioner från idé till färdig produkt. Arbetet kombinerade hantverk, visuell identitet och community-byggande via Instagram." data-en="I founded and ran a hand-dyed yarn brand, creating color stories and collections from concept to finished product. The work combined craftsmanship, visual identity, and community-building through a strong presence on Instagram.">Jag grundade och drev ett eget varumärke för handfärgat garn, med färgberättelser och kollektioner från idé till färdig produkt. Arbetet kombinerade hantverk, visuell identitet och community-byggande via Instagram.</p>
+      <a href="dandelion.html" class="meta-link" data-sv="Se projekt →" data-en="See Project →">Se projekt →</a>
     </article>
 
     <article class="project">
@@ -386,10 +416,10 @@ footer {
         <img class="img-second" src="soe.jpg" alt="Anna Strandberg Design">
         <img class="img-third" src="flora.jpg" alt="Anna Strandberg Design">
       </div>
-      <p class="meta-label">Work &nbsp;<strong>Anna Strandberg Design</strong></p>
-      <h3 class="meta-title">Knitwear Designer &amp; Pattern Writer</h3>
-      <p class="meta-text">I design knitwear and develop patterns with a strong focus on texture, form, and storytelling. My work has been published in international knitting magazines, with a book publication on the way.</p>
-      <a href="knit.html" class="meta-link">See work →</a>
+      <p class="meta-label" data-sv="Uppdrag &nbsp;" data-en="Work &nbsp;">Uppdrag &nbsp;<strong>Anna Strandberg Design</strong></p>
+      <h3 class="meta-title" data-sv="Stickklädesdesigner &amp; Mönsterskrivare" data-en="Knitwear Designer &amp; Pattern Writer">Stickklädesdesigner &amp; Mönsterskrivare</h3>
+      <p class="meta-text" data-sv="Jag formger stickkläder och tar fram mönster med starkt fokus på textur, form och berättande. Mitt arbete har publicerats i internationella sticktidningar och en bok är på väg." data-en="I design knitwear and develop patterns with a strong focus on texture, form, and storytelling. My work has been published in international knitting magazines, with a book publication on the way.">Jag formger stickkläder och tar fram mönster med starkt fokus på textur, form och berättande. Mitt arbete har publicerats i internationella sticktidningar och en bok är på väg.</p>
+      <a href="knit.html" class="meta-link" data-sv="Se arbete →" data-en="See work →">Se arbete →</a>
     </article>
 
   </div>
@@ -398,7 +428,7 @@ footer {
 <footer id="contact">
   <div class="footer-grid">
     <div class="footer-col">
-      <h4>Office</h4>
+      <h4 data-sv="Kontor" data-en="Office">Kontor</h4>
       <address>Stockholm</address>
     </div>
     <div class="footer-col">
@@ -407,17 +437,27 @@ footer {
       <a href="https://www.linkedin.com/in/anna-strandberg-71a2633" target="_blank" rel="noopener">LinkedIn</a>
     </div>
     <div class="footer-col">
-      <h4>About</h4>
-      <a href="about.html">About me</a>
+      <h4 data-sv="Om" data-en="About">Om</h4>
+      <a href="about.html" data-sv="Om mig" data-en="About me">Om mig</a>
     </div>
   </div>
 </footer>
 
 <script>
-function toggleMenu() { document.getElementById('nav-dropdown').classList.toggle('open'); }
+function toggleMenu() {
+  document.getElementById('nav-dropdown').classList.toggle('open');
+}
 document.addEventListener('click', function(e) {
   if (!e.target.closest('nav')) document.getElementById('nav-dropdown').classList.remove('open');
 });
+function setLang(lang) {
+  document.getElementById('flag-sv').classList.toggle('active', lang === 'sv');
+  document.getElementById('flag-en').classList.toggle('active', lang === 'en');
+  document.querySelectorAll('[data-sv]').forEach(function(el) {
+    el.textContent = lang === 'sv' ? el.getAttribute('data-sv') : el.getAttribute('data-en');
+  });
+  document.documentElement.lang = lang;
+}
 </script>
 
 </body>
