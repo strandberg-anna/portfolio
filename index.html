@@ -454,7 +454,7 @@ function setLang(lang) {
   document.getElementById('flag-sv').classList.toggle('active', lang === 'sv');
   document.getElementById('flag-en').classList.toggle('active', lang === 'en');
   document.querySelectorAll('[data-sv]').forEach(function(el) {
-    el.textContent = lang === 'sv' ? el.getAttribute('data-sv') : el.getAttribute('data-en');
+    el.innerHTML = lang === 'sv' ? el.getAttribute('data-sv') : el.getAttribute('data-en');
   });
   document.documentElement.lang = lang;
 }

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About — Anna Strandberg</title>
+<title>Om mig — Anna Strandberg</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -31,7 +31,42 @@ nav {
   justify-content: space-between;
   padding: 14px 40px;
 }
-.nav-name { font-size: 13px; font-weight: 400; color: #0e0e0e; text-decoration: none; }
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-name {
+  font-size: 13px;
+  font-weight: 400;
+  color: #0e0e0e;
+  text-decoration: none;
+}
+
+/* FLAG BUTTONS */
+.lang-flags {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.flag-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-size: 18px;
+  line-height: 1;
+  opacity: 0.35;
+  transition: opacity 0.2s;
+}
+
+.flag-btn.active { opacity: 1; }
+.flag-btn:hover { opacity: 0.7; }
+
+/* HAMBURGER */
 .hamburger { background: none; border: none; cursor: pointer; padding: 4px; display: flex; flex-direction: column; gap: 5px; }
 .hamburger span { display: block; width: 22px; height: 1.5px; background: #0e0e0e; }
 .nav-dropdown { display: none; position: absolute; top: 100%; right: 40px; background: #fff; border: 1px solid #e0e0dc; min-width: 200px; z-index: 200; }
@@ -40,9 +75,9 @@ nav {
 .nav-dropdown a:last-child { border-bottom: none; }
 .nav-dropdown a:hover { background: #f5f5f3; }
 
-/* HERO TAGLINE */
+/* TAGLINE */
 .tagline {
-  padding: 80px 40px 80px;
+  padding: 80px 40px;
   border-bottom: 1px solid #e0e0dc;
 }
 
@@ -71,182 +106,101 @@ nav {
   padding-top: 2px;
 }
 
-/* WORK EXPERIENCE */
+/* CV */
 .cv-list { display: flex; flex-direction: column; }
-
-.cv-item {
-  display: grid;
-  grid-template-columns: 1fr;
-  padding: 20px 0;
-  border-bottom: 1px solid #e0e0dc;
-}
-
+.cv-item { padding: 20px 0; border-bottom: 1px solid #e0e0dc; }
 .cv-item:first-child { padding-top: 0; }
 .cv-item:last-child { border-bottom: none; }
-
-.cv-employer {
-  font-size: 11px;
-  font-weight: 400;
-  letter-spacing: 0.06em;
-  color: #999;
-  margin-bottom: 4px;
-}
-
-.cv-role {
-  font-size: 15px;
-  font-weight: 400;
-  line-height: 1.5;
-  color: #0e0e0e;
-}
+.cv-employer { font-size: 11px; font-weight: 400; letter-spacing: 0.06em; color: #999; margin-bottom: 4px; }
+.cv-role { font-size: 14px; font-weight: 400; line-height: 1.5; color: #0e0e0e; }
 
 /* EDUCATION */
 .edu-list { display: flex; flex-direction: column; }
-
-.edu-item {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 20px;
-  align-items: baseline;
-  padding: 20px 0;
-  border-bottom: 1px solid #e0e0dc;
-}
-
+.edu-item { display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: baseline; padding: 20px 0; border-bottom: 1px solid #e0e0dc; }
 .edu-item:first-child { padding-top: 0; }
 .edu-item:last-child { border-bottom: none; }
+.edu-name { font-size: 14px; font-weight: 400; line-height: 1.5; color: #0e0e0e; }
+.edu-year { font-size: 12px; color: #999; white-space: nowrap; }
 
-.edu-name {
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.5;
-  color: #0e0e0e;
-}
+/* ABOUT PHOTO */
+.about-content { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+.about-photo { width: 100%; display: block; object-fit: cover; }
+.about-caption { margin-top: 12px; }
+.about-caption strong { display: block; font-size: 13px; font-weight: 500; }
+.about-caption span { font-size: 13px; color: #999; }
 
-.edu-year {
-  font-size: 12px;
-  color: #999;
-  white-space: nowrap;
-}
-
-/* ABOUT ME */
-.about-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  align-items: start;
-}
-
-.about-photo {
-  width: 100%;
-  display: block;
-  object-fit: cover;
-}
-
-.about-caption {
-  margin-top: 12px;
-}
-
-.about-caption strong {
-  display: block;
-  font-size: 13px;
-  font-weight: 500;
-}
-
-.about-caption span {
-  font-size: 13px;
-  color: #999;
-}
-
-/* CTA */
-.cta {
+/* QUOTE */
+.quote-section {
   padding: 64px 40px;
   border-bottom: 1px solid #e0e0dc;
 }
 
-.cta p {
-  font-size: clamp(16px, 2.5vw, 22px);
+blockquote {
+  font-size: clamp(16px, 2vw, 20px);
   font-weight: 300;
+  line-height: 1.7;
   color: #0e0e0e;
+  max-width: 720px;
+  margin-bottom: 20px;
 }
+
+blockquote::before {
+  content: '"';
+  font-size: 1em;
+}
+
+blockquote::after {
+  content: '"';
+  font-size: 1em;
+}
+
+.quote-attribution {
+  font-size: 13px;
+  color: #999;
+}
+
+@media (min-width: 600px) and (max-width: 999px) {
+  .quote-section { padding: 48px 24px; }
+}
+
+@media (max-width: 599px) {
+  .quote-section { padding: 40px 20px; }
+}
+.cta { padding: 64px 40px; border-bottom: 1px solid #e0e0dc; }
+.cta p { font-size: clamp(16px, 2.5vw, 22px); font-weight: 300; }
+.note { padding: 40px 40px; border-bottom: 1px solid #e0e0dc; }
+.note p { font-size: 14px; line-height: 1.75; color: #555; }
 
 /* FOOTER */
-footer {
-  padding: 60px 40px;
-}
-
-.footer-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 48px;
-}
-
-.footer-col h4 {
-  font-size: 11px;
-  font-weight: 400;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: #999;
-  margin-bottom: 16px;
-}
-
-.footer-col address {
-  font-size: 14px;
-  font-style: normal;
-  line-height: 1.8;
-  color: #0e0e0e;
-}
-
-.footer-col a {
-  display: block;
-  font-size: 14px;
-  color: #0e0e0e;
-  text-decoration: none;
-  line-height: 2;
-}
-
+footer { padding: 60px 40px; }
+.footer-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 48px; }
+.footer-col h4 { font-size: 11px; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: #999; margin-bottom: 16px; }
+.footer-col address { font-size: 14px; font-style: normal; line-height: 1.8; color: #0e0e0e; }
+.footer-col a { display: block; font-size: 14px; color: #0e0e0e; text-decoration: none; line-height: 2; }
 .footer-col a:hover { opacity: 0.45; }
 
-/* ── TABLET ── */
+/* TABLET */
 @media (min-width: 600px) and (max-width: 999px) {
   nav { padding: 14px 24px; }
+  .nav-dropdown { right: 24px; }
   .tagline { padding: 60px 24px; }
-
-  .section {
-    grid-template-columns: 160px 1fr;
-    gap: 32px;
-    padding: 48px 24px;
-  }
-
-  .about-content {
-    grid-template-columns: 1fr 1fr;
-  }
-
+  .section { grid-template-columns: 160px 1fr; gap: 32px; padding: 48px 24px; }
   .cta { padding: 48px 24px; }
+  .note { padding: 32px 24px; }
   footer { padding: 48px 24px; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
 }
 
-/* ── MOBILE ── */
+/* MOBILE */
 @media (max-width: 599px) {
   nav { padding: 14px 20px; }
   .nav-dropdown { right: 20px; }
   .tagline { padding: 40px 20px 48px; }
-
-  .section {
-    grid-template-columns: 1fr;
-    gap: 24px;
-    padding: 40px 20px;
-  }
-
-  .about-content {
-    grid-template-columns: 1fr;
-  }
-
-  .edu-item {
-    grid-template-columns: 1fr;
-    gap: 4px;
-  }
-
+  .section { grid-template-columns: 1fr; gap: 24px; padding: 40px 20px; }
+  .about-content { grid-template-columns: 1fr; }
+  .edu-item { grid-template-columns: 1fr; gap: 4px; }
   .cta { padding: 40px 20px; }
+  .note { padding: 28px 20px; }
   footer { padding: 40px 20px; }
   .footer-grid { grid-template-columns: 1fr; gap: 32px; }
 }
@@ -256,7 +210,13 @@ footer {
 <body>
 
 <nav>
-  <a href="index.html" class="nav-name">Anna Strandberg</a>
+  <div class="nav-left">
+    <a href="index.html" class="nav-name">Anna Strandberg</a>
+    <div class="lang-flags">
+      <button class="flag-btn active" onclick="setLang('sv')" id="flag-sv" title="Svenska">🇸🇪</button>
+      <button class="flag-btn" onclick="setLang('en')" id="flag-en" title="English">🇬🇧</button>
+    </div>
+  </div>
   <button class="hamburger" onclick="toggleMenu()" aria-label="Meny">
     <span></span><span></span><span></span>
   </button>
@@ -266,58 +226,60 @@ footer {
     <a href="kombispel.html">Kombispel</a>
     <a href="product.html">Product Photography</a>
     <a href="dandelion.html">Dandelion Yarns</a>
-    <a href="about.html">About me</a>
+    <a href="about.html" data-sv="Om mig" data-en="About me">Om mig</a>
   </div>
 </nav>
 
 <!-- TAGLINE -->
 <div class="tagline">
-  <h1>I create visual stories through design, texture, and a careful attention to detail.</h1>
+  <h1 data-sv="Jag skapar visuella berättelser genom design, textur och ett noggrant öga för detaljer." data-en="I create visual stories through design, texture, and a careful attention to detail.">
+    Jag skapar visuella berättelser genom design, textur och ett noggrant öga för detaljer.
+  </h1>
 </div>
 
 <!-- WORK EXPERIENCE -->
 <div class="section">
-  <h2 class="section-title">Work experience</h2>
+  <h2 class="section-title" data-sv="Arbetslivs&shy;erfarenhet" data-en="Work experience">Arbetslivs&shy;erfarenhet</h2>
   <div class="cv-list">
 
     <div class="cv-item">
-      <p class="cv-employer">MOVS Technology, 2021 – present</p>
-      <p class="cv-role">Graphic designer, content manager and photographer</p>
+      <p class="cv-employer">MOVS Technology, 2021 – nu</p>
+      <p class="cv-role" data-sv="Grafisk formgivare, innehållsansvarig och fotograf" data-en="Graphic designer, content manager and photographer">Grafisk formgivare, innehållsansvarig och fotograf</p>
     </div>
 
     <div class="cv-item">
       <p class="cv-employer">Prepjan AB, 2011 – 2013</p>
-      <p class="cv-role">Graphic designer and web designer</p>
+      <p class="cv-role" data-sv="Grafisk formgivare och webbdesigner" data-en="Graphic designer and web designer">Grafisk formgivare och webbdesigner</p>
     </div>
 
     <div class="cv-item">
       <p class="cv-employer">Anna Strandberg Design</p>
-      <p class="cv-role">Knitwear Designer and pattern writer. Published several times in prestigious knit magazines, with a book publication scheduled for release.</p>
+      <p class="cv-role" data-sv="Formgivare av stickmönster och mönsterskrivare. Publicerad flera gånger i prestigefyllda sticktidningar, med en bokutgivning planerad." data-en="Knitwear designer and pattern writer. Published several times in prestigious knit magazines, with a book publication scheduled for release.">Formgivare av stickmönster och mönsterskrivare. Publicerad flera gånger i prestigefyllda sticktidningar, med en bokutgivning planerad.</p>
     </div>
 
     <div class="cv-item">
       <p class="cv-employer">Dandelion Yarns, 2016 – 2021</p>
-      <p class="cv-role">Own hand dyed yarn brand</p>
+      <p class="cv-role" data-sv="Eget varumärke för handfärgat garn" data-en="Own hand dyed yarn brand">Eget varumärke för handfärgat garn</p>
     </div>
 
     <div class="cv-item">
       <p class="cv-employer">Kombispel AB, 2014 – 2016</p>
-      <p class="cv-role">Graphic designer and Art Director</p>
+      <p class="cv-role" data-sv="Grafisk formgivare och Art Director" data-en="Graphic designer and Art Director">Grafisk formgivare och Art Director</p>
     </div>
 
     <div class="cv-item">
       <p class="cv-employer">AFA Försäkring, 2008 – 2011</p>
-      <p class="cv-role">Freelance graphic designer and illustrator</p>
+      <p class="cv-role" data-sv="Frilansande grafisk formgivare och illustratör" data-en="Freelance graphic designer and illustrator">Frilansande grafisk formgivare och illustratör</p>
     </div>
 
     <div class="cv-item">
       <p class="cv-employer">Xerox Global Services, 2002 – 2008</p>
-      <p class="cv-role">Graphic designer for various clients. Ericsson, Bristol Myers Squibb and SKR</p>
+      <p class="cv-role" data-sv="Grafisk formgivare för olika kunder: Ericsson, Bristol Myers Squibb och SKR" data-en="Graphic designer for various clients: Ericsson, Bristol Myers Squibb and SKR">Grafisk formgivare för olika kunder: Ericsson, Bristol Myers Squibb och SKR</p>
     </div>
 
     <div class="cv-item">
       <p class="cv-employer">Modul 1 Data AB, 2001</p>
-      <p class="cv-role">Web designer</p>
+      <p class="cv-role" data-sv="Webbdesigner" data-en="Web designer">Webbdesigner</p>
     </div>
 
   </div>
@@ -325,31 +287,31 @@ footer {
 
 <!-- EDUCATION -->
 <div class="section">
-  <h2 class="section-title">Education</h2>
+  <h2 class="section-title" data-sv="Utbildning" data-en="Education">Utbildning</h2>
   <div class="edu-list">
 
     <div class="edu-item">
-      <p class="edu-name">Graphic communication and art direction, Berghs school of communication</p>
+      <p class="edu-name" data-sv="Grafisk kommunikation och art direction, Berghs School of Communication" data-en="Graphic communication and art direction, Berghs school of communication">Grafisk kommunikation och art direction, Berghs School of Communication</p>
       <p class="edu-year">2006</p>
     </div>
 
     <div class="edu-item">
-      <p class="edu-name">Web technique, Nackademin</p>
+      <p class="edu-name" data-sv="Webbtekniker, Nackademin" data-en="Web technique, Nackademin">Webbtekniker, Nackademin</p>
       <p class="edu-year">1999 – 2001</p>
     </div>
 
     <div class="edu-item">
-      <p class="edu-name">Internet programming (Java), Kristianstads Högskola</p>
+      <p class="edu-name" data-sv="Internetprogrammering (Java), Kristianstads Högskola" data-en="Internet programming (Java), Kristianstads Högskola">Internetprogrammering (Java), Kristianstads Högskola</p>
       <p class="edu-year">1999</p>
     </div>
 
     <div class="edu-item">
-      <p class="edu-name">Art history 20 credits, Media and culture 40 credits, Lunds Universitet</p>
+      <p class="edu-name" data-sv="Konsthistoria 20 p, Media och kultur 40 p, Lunds Universitet" data-en="Art history 20 credits, Media and culture 40 credits, Lunds Universitet">Konsthistoria 20 p, Media och kultur 40 p, Lunds Universitet</p>
       <p class="edu-year">1996 – 1998</p>
     </div>
 
     <div class="edu-item">
-      <p class="edu-name">Grafisk Tryckmedia, high school (incl. internship)</p>
+      <p class="edu-name" data-sv="Grafisk Tryckmedia, gymnasium (inkl. praktik)" data-en="Grafisk Tryckmedia, high school (incl. internship)">Grafisk Tryckmedia, gymnasium (inkl. praktik)</p>
       <p class="edu-year">1992 – 1995</p>
     </div>
 
@@ -358,33 +320,45 @@ footer {
 
 <!-- ABOUT ME -->
 <div class="section">
-  <h2 class="section-title">About me</h2>
+  <h2 class="section-title" data-sv="Om mig" data-en="About me">Om mig</h2>
   <div class="about-content">
     <div>
       <img class="about-photo" src="Anna.jpg" alt="Anna Strandberg">
       <div class="about-caption">
         <strong>Anna Strandberg</strong>
-        <span>Graphic designer</span>
+        <span data-sv="Grafisk formgivare" data-en="Graphic designer">Grafisk formgivare</span>
       </div>
     </div>
   </div>
 </div>
 
+<!-- QUOTE -->
+<div class="quote-section">
+  <blockquote data-sv="När jag anlitar Anna Strandberg vet jag att hon kommer ta mina lösa idéer som flyger runt i luften, plocka ner dem på bordet och forma dem till fantastiska grafiska produkter. Hon har ett lugn som gör att alla i projektet stressar ner och kommer framåt. Jag har jobbat med henne under många år, i flera olika projekt och kommer fortsätta med det så länge jag får chansen. Rekommenderar henne varmt!" data-en="When I hire Anna Strandberg, I know she will take my loose ideas floating around in the air, bring them down to the table and shape them into fantastic graphic products. She has a calm that makes everyone in the project relax and move forward. I have worked with her for many years, across several different projects, and will continue to do so for as long as I get the chance. I warmly recommend her!">
+    När jag anlitar Anna Strandberg vet jag att hon kommer ta mina lösa idéer som flyger runt i luften, plocka ner dem på bordet och forma dem till fantastiska grafiska produkter. Hon har ett lugn som gör att alla i projektet stressar ner och kommer framåt. Jag har jobbat med henne under många år, i flera olika projekt och kommer fortsätta med det så länge jag får chansen. Rekommenderar henne varmt!
+  </blockquote>
+  <p class="quote-attribution">– Frida Walström, copywriter, Kreativer AB</p>
+</div>
+
 <!-- CTA -->
 <div class="cta">
-  <p>Connect with me to explore your project's potential.</p>
+  <p data-sv="Hör av dig om du vill utforska vad vi kan skapa tillsammans." data-en="Connect with me to explore your project's potential.">
+    Hör av dig om du vill utforska vad vi kan skapa tillsammans.
+  </p>
 </div>
 
 <!-- PROCESS NOTE -->
-<div class="cta">
-  <p style="font-size: 14px;">This site was sketched in Figma and brought to life in collaboration with Claude, an AI assistant — a process that felt very much like working with a developer.</p>
+<div class="note">
+  <p data-sv="Den här portfolion skissades i Figma och förverkligades i samarbete med Claude, en AI-assistent — en process som kändes väldigt likt att arbeta med en utvecklare." data-en="This site was sketched in Figma and brought to life in collaboration with Claude, an AI assistant — a process that felt very much like working with a developer.">
+    Den här portfolion skissades i Figma och förverkligades i samarbete med Claude, en AI-assistent — en process som kändes väldigt likt att arbeta med en utvecklare.
+  </p>
 </div>
 
 <!-- FOOTER -->
 <footer id="contact">
   <div class="footer-grid">
     <div class="footer-col">
-      <h4>Office</h4>
+      <h4 data-sv="Kontor" data-en="Office">Kontor</h4>
       <address>Stockholm</address>
     </div>
     <div class="footer-col">
@@ -393,17 +367,29 @@ footer {
       <a href="https://www.linkedin.com/in/anna-strandberg-71a2633" target="_blank" rel="noopener">LinkedIn</a>
     </div>
     <div class="footer-col">
-      <h4>About</h4>
-      <a href="about.html">About me</a>
+      <h4 data-sv="Om" data-en="About">Om</h4>
+      <a href="about.html" data-sv="Om mig" data-en="About me">Om mig</a>
     </div>
   </div>
 </footer>
 
 <script>
-function toggleMenu() { document.getElementById('nav-dropdown').classList.toggle('open'); }
+function toggleMenu() {
+  document.getElementById('nav-dropdown').classList.toggle('open');
+}
 document.addEventListener('click', function(e) {
   if (!e.target.closest('nav')) document.getElementById('nav-dropdown').classList.remove('open');
 });
+
+function setLang(lang) {
+  document.getElementById('flag-sv').classList.toggle('active', lang === 'sv');
+  document.getElementById('flag-en').classList.toggle('active', lang === 'en');
+  document.querySelectorAll('[data-sv]').forEach(function(el) {
+    el.innerHTML = lang === 'sv' ? el.getAttribute('data-sv') : el.getAttribute('data-en');
+  });
+  document.documentElement.lang = lang;
+  document.title = lang === 'sv' ? 'Om mig — Anna Strandberg' : 'About me — Anna Strandberg';
+}
 </script>
 
 </body>
