@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kombispel — Anna Strandberg</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'DM Sans', Helvetica, sans-serif;
+  font-weight: 300;
+  color: #0e0e0e;
+  background: #ffffff;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* NAV */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #fff;
+  border-bottom: 1px solid #e0e0dc;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 40px;
+}
+.nav-name { font-size: 13px; font-weight: 400; color: #0e0e0e; text-decoration: none; }
+.nav-links { display: flex; gap: 28px; list-style: none; }
+.nav-links a { font-size: 13px; color: #0e0e0e; text-decoration: none; }
+
+/* HEADER — desktop: titel vänster, text höger */
+.project-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  padding: 60px 40px 48px;
+}
+
+.project-header .left .label {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #999;
+  margin-bottom: 12px;
+}
+
+.project-header .left h1 {
+  font-size: clamp(32px, 4vw, 56px);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.project-header .right {
+  padding-top: 8px;
+}
+
+.project-header .right .role {
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 12px;
+  color: #0e0e0e;
+}
+
+.project-header .right p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #444;
+}
+
+/* CONTENT */
+.content {
+  padding: 0 40px 80px;
+}
+
+img { display: block; width: 100%; }
+
+.img-full {
+  margin-bottom: 3px;
+  object-fit: cover;
+}
+
+.img-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3px;
+  margin-bottom: 3px;
+}
+
+.img-row-2 img {
+  object-fit: cover;
+  width: 100%;
+}
+
+/* FOOTER */
+footer {
+  border-top: 1px solid #e0e0dc;
+  padding: 60px 40px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 48px;
+}
+
+.footer-col h4 {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #999;
+  margin-bottom: 16px;
+}
+
+.footer-col p,
+.footer-col address {
+  font-size: 14px;
+  font-style: normal;
+  line-height: 1.8;
+  color: #0e0e0e;
+}
+
+.footer-col a {
+  display: block;
+  font-size: 14px;
+  color: #0e0e0e;
+  text-decoration: none;
+  line-height: 2;
+}
+
+/* ── TABLET ── */
+@media (min-width: 600px) and (max-width: 999px) {
+  nav { padding: 14px 24px; }
+
+  .project-header {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 40px 24px 36px;
+  }
+
+  .content { padding: 0 24px 60px; }
+  footer { padding: 48px 24px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* ── MOBILE ── */
+@media (max-width: 599px) {
+  nav { padding: 14px 20px; }
+  .nav-links { display: none; }
+
+  .project-header {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 32px 20px 28px;
+  }
+
+  .content { padding: 0 20px 48px; }
+
+  .img-row-2 {
+    grid-template-columns: 1fr;
+  }
+
+  footer { padding: 40px 20px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+}
+
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-name">Anna Strandberg</a>
+  <ul class="nav-links">
+    <li><a href="index.html#portfolio">Portfolio</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<header class="project-header">
+  <div class="left">
+    <p class="label">Work</p>
+    <h1>Kombispel<br>(2014 – 2016)</h1>
+  </div>
+  <div class="right">
+    <p class="role">Graphic Designer &amp; Art Director</p>
+    <p>At Kombispel, I worked with graphic design and art direction across a range of projects, from campaigns and print material to digital communication. The work involved developing visual concepts as well as refining them into clear and consistent design across different formats. Working within an established brand, I focused on creating communication that felt both engaging and accessible, balancing creativity with structure. The role gave me a strong foundation in shaping cohesive visual identities and adapting them across multiple channels.</p>
+  </div>
+</header>
+
+<div class="content">
+
+  <!-- Rad 1: Affisch gladje + Paskannons -->
+  <div class="img-row-2">
+    <img src="Affisch_gladje.jpg" alt="Affisch Glädje">
+    <img src="paskannons.jpg" alt="Påskannons">
+  </div>
+
+  <!-- Rad 2: Almanacka full bredd -->
+  <img class="img-full" src="Almanacka-2016.jpg" alt="Almanacka 2016">
+
+  <!-- Rad 3: Annons kombi + karta -->
+  <div class="img-row-2">
+    <img src="Annons_kombi_1601.jpg" alt="Annons Kombispel">
+    <img src="karta.jpg" alt="Karta">
+  </div>
+
+  <!-- Rad 4: Jackpotten + jackpotthjulet -->
+  <div class="img-row-2">
+    <img src="Jackpotten_ver2.jpg" alt="Jackpotten">
+    <img src="jackpotthjulet.jpg" alt="Jackpotthjulet">
+  </div>
+
+</div>
+
+<footer id="contact">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h4>Office</h4>
+      <address>
+        Värtavägen 23<br>
+        115 53 Stockholm
+      </address>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <p>
+        +46 733 04 50 30<br>
+        annastrandberg@me.com
+      </p>
+    </div>
+    <div class="footer-col">
+      <h4>Social</h4>
+      <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
