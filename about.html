@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Anna Strandberg</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'DM Sans', Helvetica, sans-serif;
+  font-weight: 300;
+  color: #0e0e0e;
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* NAV */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #fff;
+  border-bottom: 1px solid #e0e0dc;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 40px;
+}
+.nav-name { font-size: 13px; font-weight: 400; color: #0e0e0e; text-decoration: none; }
+.hamburger { background: none; border: none; cursor: pointer; padding: 4px; display: flex; flex-direction: column; gap: 5px; }
+.hamburger span { display: block; width: 22px; height: 1.5px; background: #0e0e0e; }
+.nav-dropdown { display: none; position: absolute; top: 100%; right: 40px; background: #fff; border: 1px solid #e0e0dc; min-width: 200px; z-index: 200; }
+.nav-dropdown.open { display: block; }
+.nav-dropdown a { display: block; font-size: 13px; color: #0e0e0e; text-decoration: none; padding: 14px 20px; border-bottom: 1px solid #e0e0dc; }
+.nav-dropdown a:last-child { border-bottom: none; }
+.nav-dropdown a:hover { background: #f5f5f3; }
+
+/* HERO TAGLINE */
+.tagline {
+  padding: 80px 40px 80px;
+  border-bottom: 1px solid #e0e0dc;
+}
+
+.tagline h1 {
+  font-size: clamp(28px, 4vw, 52px);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  max-width: 800px;
+}
+
+/* SECTIONS */
+.section {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 40px;
+  padding: 64px 40px;
+  border-bottom: 1px solid #e0e0dc;
+}
+
+.section-title {
+  font-size: clamp(24px, 3vw, 40px);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  padding-top: 2px;
+}
+
+/* WORK EXPERIENCE */
+.cv-list { display: flex; flex-direction: column; }
+
+.cv-item {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 20px 0;
+  border-bottom: 1px solid #e0e0dc;
+}
+
+.cv-item:first-child { padding-top: 0; }
+.cv-item:last-child { border-bottom: none; }
+
+.cv-employer {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: #999;
+  margin-bottom: 4px;
+}
+
+.cv-role {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #0e0e0e;
+}
+
+/* EDUCATION */
+.edu-list { display: flex; flex-direction: column; }
+
+.edu-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 20px;
+  align-items: baseline;
+  padding: 20px 0;
+  border-bottom: 1px solid #e0e0dc;
+}
+
+.edu-item:first-child { padding-top: 0; }
+.edu-item:last-child { border-bottom: none; }
+
+.edu-name {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #0e0e0e;
+}
+
+.edu-year {
+  font-size: 12px;
+  color: #999;
+  white-space: nowrap;
+}
+
+/* ABOUT ME */
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.about-photo {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.about-caption {
+  margin-top: 12px;
+}
+
+.about-caption strong {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.about-caption span {
+  font-size: 13px;
+  color: #999;
+}
+
+/* CTA */
+.cta {
+  padding: 64px 40px;
+  border-bottom: 1px solid #e0e0dc;
+}
+
+.cta p {
+  font-size: clamp(16px, 2.5vw, 22px);
+  font-weight: 300;
+  color: #0e0e0e;
+}
+
+/* FOOTER */
+footer {
+  padding: 60px 40px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 48px;
+}
+
+.footer-col h4 {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #999;
+  margin-bottom: 16px;
+}
+
+.footer-col address {
+  font-size: 14px;
+  font-style: normal;
+  line-height: 1.8;
+  color: #0e0e0e;
+}
+
+.footer-col a {
+  display: block;
+  font-size: 14px;
+  color: #0e0e0e;
+  text-decoration: none;
+  line-height: 2;
+}
+
+.footer-col a:hover { opacity: 0.45; }
+
+/* ── TABLET ── */
+@media (min-width: 600px) and (max-width: 999px) {
+  nav { padding: 14px 24px; }
+  .tagline { padding: 60px 24px; }
+
+  .section {
+    grid-template-columns: 160px 1fr;
+    gap: 32px;
+    padding: 48px 24px;
+  }
+
+  .about-content {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .cta { padding: 48px 24px; }
+  footer { padding: 48px 24px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* ── MOBILE ── */
+@media (max-width: 599px) {
+  nav { padding: 14px 20px; }
+  .nav-dropdown { right: 20px; }
+  .tagline { padding: 40px 20px 48px; }
+
+  .section {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 40px 20px;
+  }
+
+  .about-content {
+    grid-template-columns: 1fr;
+  }
+
+  .edu-item {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .cta { padding: 40px 20px; }
+  footer { padding: 40px 20px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+}
+
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-name">Anna Strandberg</a>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Meny">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-dropdown" id="nav-dropdown">
+    <a href="movs.html">MOVS</a>
+    <a href="knit.html">Anna Strandberg Design</a>
+    <a href="kombispel.html">Kombispel</a>
+    <a href="product.html">Product Photography</a>
+    <a href="dandelion.html">Dandelion Yarns</a>
+    <a href="about.html">About me</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- TAGLINE -->
+<div class="tagline">
+  <h1>I create visual stories through design, texture, and a careful attention to detail.</h1>
+</div>
+
+<!-- WORK EXPERIENCE -->
+<div class="section">
+  <h2 class="section-title">Work experience</h2>
+  <div class="cv-list">
+
+    <div class="cv-item">
+      <p class="cv-employer">MOVS Technology, 2021 – present</p>
+      <p class="cv-role">Graphic designer, content manager and photographer</p>
+    </div>
+
+    <div class="cv-item">
+      <p class="cv-employer">Prepjan AB, 2011 – 2013</p>
+      <p class="cv-role">Graphic designer and web designer</p>
+    </div>
+
+    <div class="cv-item">
+      <p class="cv-employer">Anna Strandberg Design</p>
+      <p class="cv-role">Knitwear Designer and pattern writer. Published several times in prestigious knit magazines, with a book publication scheduled for release.</p>
+    </div>
+
+    <div class="cv-item">
+      <p class="cv-employer">Dandelion Yarns, 2016 – 2021</p>
+      <p class="cv-role">Own hand dyed yarn brand</p>
+    </div>
+
+    <div class="cv-item">
+      <p class="cv-employer">Kombispel AB, 2014 – 2016</p>
+      <p class="cv-role">Graphic designer and Art Director</p>
+    </div>
+
+    <div class="cv-item">
+      <p class="cv-employer">AFA Försäkring, 2008 – 2011</p>
+      <p class="cv-role">Freelance graphic designer and illustrator</p>
+    </div>
+
+    <div class="cv-item">
+      <p class="cv-employer">Xerox Global Services, 2002 – 2008</p>
+      <p class="cv-role">Graphic designer for various clients. Ericsson, Bristol Myers Squibb and SKR</p>
+    </div>
+
+    <div class="cv-item">
+      <p class="cv-employer">Modul 1 Data AB, 2001</p>
+      <p class="cv-role">Web designer</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- EDUCATION -->
+<div class="section">
+  <h2 class="section-title">Education</h2>
+  <div class="edu-list">
+
+    <div class="edu-item">
+      <p class="edu-name">Graphic communication and art direction, Berghs school of communication</p>
+      <p class="edu-year">2006</p>
+    </div>
+
+    <div class="edu-item">
+      <p class="edu-name">Web technique, Nackademin</p>
+      <p class="edu-year">1999 – 2001</p>
+    </div>
+
+    <div class="edu-item">
+      <p class="edu-name">Internet programming (Java), Kristianstads Högskola</p>
+      <p class="edu-year">1999</p>
+    </div>
+
+    <div class="edu-item">
+      <p class="edu-name">Art history 20 credits, Media and culture 40 credits, Lunds Universitet</p>
+      <p class="edu-year">1996 – 1998</p>
+    </div>
+
+    <div class="edu-item">
+      <p class="edu-name">Grafisk Tryckmedia, high school (incl. internship)</p>
+      <p class="edu-year">1992 – 1995</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- ABOUT ME -->
+<div class="section">
+  <h2 class="section-title">About me</h2>
+  <div class="about-content">
+    <div>
+      <img class="about-photo" src="Anna.jpg" alt="Anna Strandberg">
+      <div class="about-caption">
+        <strong>Anna Strandberg</strong>
+        <span>Graphic designer</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta">
+  <p>Connect with me to explore your project's potential.</p>
+</div>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h4>Office</h4>
+      <address>Stockholm</address>
+    </div>
+    <div class="footer-col">
+      <h4>Social</h4>
+      <a href="https://www.instagram.com/anna_dandelion" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.linkedin.com/in/anna-strandberg-71a2633" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+    <div class="footer-col">
+      <h4>About</h4>
+      <a href="about.html">About me</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu() { document.getElementById('nav-dropdown').classList.toggle('open'); }
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('nav')) document.getElementById('nav-dropdown').classList.remove('open');
+});
+</script>
+
+</body>
+</html>
