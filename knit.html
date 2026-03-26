@@ -206,12 +206,42 @@ footer {
 .nav-dropdown a:last-child { border-bottom: none; }
 .nav-dropdown a:hover { background: #f5f5f3; }
 
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.lang-flags {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.flag-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-size: 18px;
+  line-height: 1;
+  opacity: 0.35;
+  transition: opacity 0.2s;
+}
+.flag-btn.active { opacity: 1; }
+.flag-btn:hover { opacity: 0.7; }
+
 </style>
 </head>
 <body>
 
 <nav>
-  <a href="index.html" class="nav-name">Anna Strandberg</a>
+  <div class="nav-left">
+    <a href="index.html" class="nav-name">Anna Strandberg</a>
+    <div class="lang-flags">
+      <button class="flag-btn active" onclick="setLang('sv')" id="flag-sv" title="Svenska">🇸🇪</button>
+      <button class="flag-btn" onclick="setLang('en')" id="flag-en" title="English">🇬🇧</button>
+    </div>
+  </div>
   <button class="hamburger" onclick="toggleMenu()" aria-label="Meny">
     <span></span><span></span><span></span>
   </button>
@@ -221,17 +251,17 @@ footer {
     <a href="kombispel.html">Kombispel</a>
     <a href="product.html">Product Photography</a>
     <a href="dandelion.html">Dandelion Yarns</a>
-    <a href="about.html">About me</a>
+    <a href="about.html" data-sv="Om mig" data-en="About me">Om mig</a>
   </div>
 </nav>
 
 <header class="project-header">
   <div class="left">
-    <p class="label">Work</p>
-    <h1>Knit designs<br>(2018 – present)</h1>
+    <p class="label" data-sv="Uppdrag" data-en="Work">Uppdrag</p>
+    <h1><span data-sv="Stickdesign" data-en="Knit designs">Stickdesign</span><br>(2018 – <span data-sv="nu" data-en="present">nu</span>)</h1>
   </div>
   <div class="right">
-    <p>I create knitwear designs with a focus on texture, rhythm, and form, often starting from the material itself and letting the process guide the outcome. My work has been featured in publications such as Laine and Pom Pom Quarterly, as well as in collaborations with yarn brands. Each design is an exploration of how structure and softness can meet, shaped through careful attention to detail and a strong sense of expression.</p>
+    <p data-sv="Jag skapar stickdesigns med fokus på textur, rytm och form, och låter ofta materialet självt styra processen. Mitt arbete har publicerats i tidningar som Laine och Pom Pom Quarterly, samt i samarbeten med garnmärken. Varje design är en undersökning av hur struktur och mjukhet möts — format genom noggrann uppmärksamhet på detaljer och ett starkt uttryck." data-en="I create knitwear designs with a focus on texture, rhythm, and form, often starting from the material itself and letting the process guide the outcome. My work has been featured in publications such as Laine and Pom Pom Quarterly, as well as in collaborations with yarn brands. Each design is an exploration of how structure and softness can meet, shaped through careful attention to detail and a strong sense of expression.">Jag skapar stickdesigns med fokus på textur, rytm och form, och låter ofta materialet självt styra processen. Mitt arbete har publicerats i tidningar som Laine och Pom Pom Quarterly, samt i samarbeten med garnmärken. Varje design är en undersökning av hur struktur och mjukhet möts — format genom noggrann uppmärksamhet på detaljer och ett starkt uttryck.</p>
   </div>
 </header>
 
@@ -264,7 +294,7 @@ footer {
 <footer id="contact">
   <div class="footer-grid">
     <div class="footer-col">
-      <h4>Office</h4>
+      <h4 data-sv="Kontor" data-en="Office">Kontor</h4>
       <address>
         Värtavägen 23<br>
         115 53 Stockholm

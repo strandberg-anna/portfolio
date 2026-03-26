@@ -197,12 +197,42 @@ footer {
 .nav-dropdown a:last-child { border-bottom: none; }
 .nav-dropdown a:hover { background: #f5f5f3; }
 
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.lang-flags {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.flag-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-size: 18px;
+  line-height: 1;
+  opacity: 0.35;
+  transition: opacity 0.2s;
+}
+.flag-btn.active { opacity: 1; }
+.flag-btn:hover { opacity: 0.7; }
+
 </style>
 </head>
 <body>
 
 <nav>
-  <a href="index.html" class="nav-name">Anna Strandberg</a>
+  <div class="nav-left">
+    <a href="index.html" class="nav-name">Anna Strandberg</a>
+    <div class="lang-flags">
+      <button class="flag-btn active" onclick="setLang('sv')" id="flag-sv" title="Svenska">🇸🇪</button>
+      <button class="flag-btn" onclick="setLang('en')" id="flag-en" title="English">🇬🇧</button>
+    </div>
+  </div>
   <button class="hamburger" onclick="toggleMenu()" aria-label="Meny">
     <span></span><span></span><span></span>
   </button>
@@ -212,18 +242,18 @@ footer {
     <a href="kombispel.html">Kombispel</a>
     <a href="product.html">Product Photography</a>
     <a href="dandelion.html">Dandelion Yarns</a>
-    <a href="about.html">About me</a>
+    <a href="about.html" data-sv="Om mig" data-en="About me">Om mig</a>
   </div>
 </nav>
 
 <header class="project-header">
   <div class="left">
-    <p class="label">Work</p>
-    <h1>Product<br>Photography</h1>
+    <p class="label" data-sv="Uppdrag" data-en="Work">Uppdrag</p>
+    <h1><span data-sv="Produkt-" data-en="Product">Produkt-</span><br><span data-sv="fotografi" data-en="Photography">fotografi</span></h1>
   </div>
   <div class="right">
-    <p class="role">Studio &amp; Lifestyle</p>
-    <p>I work with product photography across both studio settings and real-life environments, capturing a wide range of subjects — from small, tactile materials like yarn and textiles to larger products in use. My approach is grounded in a sensitivity to light, texture, and color, with an emphasis on creating images that feel both natural and considered.<br><br>Whether working in a controlled studio setup or on location with people and surroundings, I aim to balance clarity with atmosphere. The result is imagery that not only presents the product, but also adds a sense of context, mood, and visual storytelling.</p>
+    <p class="role" data-sv="Studio &amp; Livsstil" data-en="Studio &amp; Lifestyle">Studio &amp; Livsstil</p>
+    <p data-sv="Jag arbetar med produktfotografi i både studio och verkliga miljöer och fångar ett brett spektrum av motiv — från små, taktila material som garn och textil till större produkter i bruk. Mitt förhållningssätt grundar sig i en känslighet för ljus, textur och färg, med fokus på bilder som känns både naturliga och genomtänkta. Oavsett om jag arbetar i kontrollerad studio eller på plats med människor och omgivning, strävar jag efter att balansera klarhet med atmosfär." data-en="I work with product photography across both studio settings and real-life environments, capturing a wide range of subjects — from small, tactile materials like yarn and textiles to larger products in use. My approach is grounded in a sensitivity to light, texture, and color, with an emphasis on creating images that feel both natural and considered. Whether working in a controlled studio setup or on location with people and surroundings, I aim to balance clarity with atmosphere.">Jag arbetar med produktfotografi i både studio och verkliga miljöer och fångar ett brett spektrum av motiv — från små, taktila material som garn och textil till större produkter i bruk. Mitt förhållningssätt grundar sig i en känslighet för ljus, textur och färg, med fokus på bilder som känns både naturliga och genomtänkta. Oavsett om jag arbetar i kontrollerad studio eller på plats med människor och omgivning, strävar jag efter att balansera klarhet med atmosfär.</p>
   </div>
 </header>
 
@@ -253,7 +283,7 @@ footer {
 <footer id="contact">
   <div class="footer-grid">
     <div class="footer-col">
-      <h4>Office</h4>
+      <h4 data-sv="Kontor" data-en="Office">Kontor</h4>
       <address>
         Värtavägen 23<br>
         115 53 Stockholm

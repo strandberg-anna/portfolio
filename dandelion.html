@@ -192,12 +192,42 @@ footer {
 .nav-dropdown a:last-child { border-bottom: none; }
 .nav-dropdown a:hover { background: #f5f5f3; }
 
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.lang-flags {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.flag-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-size: 18px;
+  line-height: 1;
+  opacity: 0.35;
+  transition: opacity 0.2s;
+}
+.flag-btn.active { opacity: 1; }
+.flag-btn:hover { opacity: 0.7; }
+
 </style>
 </head>
 <body>
 
 <nav>
-  <a href="index.html" class="nav-name">Anna Strandberg</a>
+  <div class="nav-left">
+    <a href="index.html" class="nav-name">Anna Strandberg</a>
+    <div class="lang-flags">
+      <button class="flag-btn active" onclick="setLang('sv')" id="flag-sv" title="Svenska">🇸🇪</button>
+      <button class="flag-btn" onclick="setLang('en')" id="flag-en" title="English">🇬🇧</button>
+    </div>
+  </div>
   <button class="hamburger" onclick="toggleMenu()" aria-label="Meny">
     <span></span><span></span><span></span>
   </button>
@@ -207,18 +237,18 @@ footer {
     <a href="kombispel.html">Kombispel</a>
     <a href="product.html">Product Photography</a>
     <a href="dandelion.html">Dandelion Yarns</a>
-    <a href="about.html">About me</a>
+    <a href="about.html" data-sv="Om mig" data-en="About me">Om mig</a>
   </div>
 </nav>
 
 <header class="project-header">
   <div class="left">
-    <p class="label">Work</p>
+    <p class="label" data-sv="Uppdrag" data-en="Work">Uppdrag</p>
     <h1>Dandelion Yarns</h1>
   </div>
   <div class="right">
-    <p class="role">Founder &amp; Creative</p>
-    <p>Dandelion Yarns was my own hand-dyed yarn brand, where I developed everything from color palettes and collections to visual identity and communication. The work was rooted in a hands-on, material-driven process, where dyeing, texture, and color were central to each collection.<br><br>Alongside the physical making, I built a visual world around the brand through photography and storytelling, primarily on Instagram. Over time, it grew into an engaged community, where atmosphere, color, and a strong sense of identity shaped how the work was experienced.</p>
+    <p class="role" data-sv="Grundare &amp; Kreativ" data-en="Founder &amp; Creative">Grundare &amp; Kreativ</p>
+    <p data-sv="Dandelion Yarns var mitt eget varumärke för handfärgat garn, där jag utvecklade allt från färgpaletter och kollektioner till visuell identitet och kommunikation. Arbetet grundades i en praktisk, materialdriven process där färgning, textur och färg var centralt i varje kollektion. Parallellt med det fysiska skapandet byggde jag en visuell värld kring varumärket genom foto och berättande, framför allt på Instagram. Över tid växte det till ett engagerat community, där atmosfär, färg och en stark känsla för identitet formade hur arbetet upplevdes." data-en="Dandelion Yarns was my own hand-dyed yarn brand, where I developed everything from color palettes and collections to visual identity and communication. The work was rooted in a hands-on, material-driven process, where dyeing, texture, and color were central to each collection. Alongside the physical making, I built a visual world around the brand through photography and storytelling, primarily on Instagram. Over time, it grew into an engaged community, where atmosphere, color, and a strong sense of identity shaped how the work was experienced.">Dandelion Yarns var mitt eget varumärke för handfärgat garn, där jag utvecklade allt från färgpaletter och kollektioner till visuell identitet och kommunikation. Arbetet grundades i en praktisk, materialdriven process där färgning, textur och färg var centralt i varje kollektion. Parallellt med det fysiska skapandet byggde jag en visuell värld kring varumärket genom foto och berättande, framför allt på Instagram. Över tid växte det till ett engagerat community, där atmosfär, färg och en stark känsla för identitet formade hur arbetet upplevdes.</p>
   </div>
 </header>
 
@@ -245,7 +275,7 @@ footer {
 <footer id="contact">
   <div class="footer-grid">
     <div class="footer-col">
-      <h4>Office</h4>
+      <h4 data-sv="Kontor" data-en="Office">Kontor</h4>
       <address>Stockholm</address>
     </div>
     <div class="footer-col">
@@ -254,8 +284,8 @@ footer {
       <a href="https://www.linkedin.com/in/anna-strandberg-71a2633" target="_blank" rel="noopener">LinkedIn</a>
     </div>
     <div class="footer-col">
-      <h4>About</h4>
-      <a href="about.html">About me</a>
+      <h4 data-sv="Om" data-en="About">Om</h4>
+      <a href="about.html" data-sv="Om mig" data-en="About me">Om mig</a>
     </div>
   </div>
 </footer>
