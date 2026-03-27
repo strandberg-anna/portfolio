@@ -129,7 +129,68 @@ nav {
 .about-caption strong { display: block; font-size: 13px; font-weight: 500; }
 .about-caption span { font-size: 13px; color: #999; }
 
-/* QUOTE */
+/* CONTACT FORM */
+.form-group {
+  margin-bottom: 24px;
+}
+
+.form-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #999;
+  margin-bottom: 8px;
+}
+
+.form-input {
+  width: 100%;
+  max-width: 480px;
+  border: none;
+  border-bottom: 1px solid #e0e0dc;
+  padding: 10px 0;
+  font-family: 'DM Sans', Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  color: #0e0e0e;
+  background: transparent;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.form-input:focus { border-color: #0e0e0e; }
+
+.form-textarea {
+  resize: vertical;
+  min-height: 120px;
+  display: block;
+}
+
+.form-submit {
+  background: #0e0e0e;
+  color: #fff;
+  border: none;
+  padding: 12px 32px;
+  font-family: 'DM Sans', Helvetica, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: opacity 0.2s;
+}
+
+.form-submit:hover { opacity: 0.7; }
+
+.form-success {
+  margin-top: 16px;
+  font-size: 13px;
+  color: #555;
+  display: none;
+}
+
+.form-success.visible { display: block; }
 .quote-section {
   padding: 64px 40px;
   border-bottom: 1px solid #e0e0dc;
@@ -222,10 +283,10 @@ footer { padding: 60px 40px; }
   </button>
   <div class="nav-dropdown" id="nav-dropdown">
     <a href="movs.html">MOVS</a>
-    <a href="knit.html">Anna Strandberg Design</a>
     <a href="kombispel.html">Kombispel</a>
     <a href="product.html">Product Photography</a>
     <a href="dandelion.html">Dandelion Yarns</a>
+    <a href="knit.html">Anna Strandberg Design</a>
     <a href="about.html" data-sv="Om mig" data-en="About me">Om mig</a>
   </div>
 </nav>
@@ -334,17 +395,8 @@ footer { padding: 60px 40px; }
 
 <!-- QUOTE -->
 <div class="quote-section">
-  <blockquote data-sv="När jag anlitar Anna Strandberg vet jag att hon kommer ta mina lösa idéer som flyger runt i luften, plocka ner dem på bordet och forma dem till fantastiska grafiska produkter. Hon har ett lugn som gör att alla i projektet stressar ner och kommer framåt. Jag har jobbat med henne under många år, i flera olika projekt och kommer fortsätta med det så länge jag får chansen. Rekommenderar henne varmt!" data-en="When I hire Anna Strandberg, I know she will take my loose ideas floating around in the air, bring them down to the table and shape them into fantastic graphic products. She has a calm that makes everyone in the project relax and move forward. I have worked with her for many years, across several different projects, and will continue to do so for as long as I get the chance. I warmly recommend her!">
-    När jag anlitar Anna Strandberg vet jag att hon kommer ta mina lösa idéer som flyger runt i luften, plocka ner dem på bordet och forma dem till fantastiska grafiska produkter. Hon har ett lugn som gör att alla i projektet stressar ner och kommer framåt. Jag har jobbat med henne under många år, i flera olika projekt och kommer fortsätta med det så länge jag får chansen. Rekommenderar henne varmt!
-  </blockquote>
+  <blockquote data-sv="När jag anlitar Anna Strandberg vet jag att hon kommer ta mina lösa idéer som flyger runt i luften, plocka ner dem på bordet och forma dem till fantastiska grafiska produkter. Hon har ett lugn som gör att alla i projektet stressar ner och kommer framåt. Jag har jobbat med henne under många år, i flera olika projekt och kommer fortsätta med det så länge jag får chansen. Rekommenderar henne varmt!" data-en="When I hire Anna Strandberg, I know she will take my loose ideas floating around in the air, bring them down to the table and shape them into fantastic graphic products. She has a calm that makes everyone in the project relax and move forward. I have worked with her for many years, across several different projects, and will continue to do so for as long as I get the chance. I warmly recommend her!">När jag anlitar Anna Strandberg vet jag att hon kommer ta mina lösa idéer som flyger runt i luften, plocka ner dem på bordet och forma dem till fantastiska grafiska produkter. Hon har ett lugn som gör att alla i projektet stressar ner och kommer framåt. Jag har jobbat med henne under många år, i flera olika projekt och kommer fortsätta med det så länge jag får chansen. Rekommenderar henne varmt!</blockquote>
   <p class="quote-attribution">– Frida Walström, copywriter, Kreativer AB</p>
-</div>
-
-<!-- CTA -->
-<div class="cta">
-  <p data-sv="Hör av dig om du vill utforska vad vi kan skapa tillsammans." data-en="Connect with me to explore your project's potential.">
-    Hör av dig om du vill utforska vad vi kan skapa tillsammans.
-  </p>
 </div>
 
 <!-- PROCESS NOTE -->
@@ -352,6 +404,29 @@ footer { padding: 60px 40px; }
   <p data-sv="Den här portfolion skissades i Figma och förverkligades i samarbete med Claude, en AI-assistent — en process som kändes väldigt likt att arbeta med en utvecklare." data-en="This site was sketched in Figma and brought to life in collaboration with Claude, an AI assistant — a process that felt very much like working with a developer.">
     Den här portfolion skissades i Figma och förverkligades i samarbete med Claude, en AI-assistent — en process som kändes väldigt likt att arbeta med en utvecklare.
   </p>
+</div>
+
+<!-- CONTACT FORM -->
+<div class="section" id="contact-form">
+  <h2 class="section-title" data-sv="Kontakt" data-en="Contact">Kontakt</h2>
+  <div>
+    <form action="https://formspree.io/f/mnjonwqw" method="POST" id="contact-form-el">
+      <div class="form-group">
+        <label class="form-label" data-sv="Namn" data-en="Name">Namn</label>
+        <input type="text" name="name" required class="form-input">
+      </div>
+      <div class="form-group">
+        <label class="form-label" data-sv="E-post" data-en="Email">E-post</label>
+        <input type="email" name="email" required class="form-input">
+      </div>
+      <div class="form-group">
+        <label class="form-label" data-sv="Meddelande" data-en="Message">Meddelande</label>
+        <textarea name="message" required class="form-input form-textarea"></textarea>
+      </div>
+      <button type="submit" class="form-submit" data-sv="Skicka" data-en="Send">Skicka</button>
+      <p class="form-success" id="form-success" data-sv="Tack! Jag återkommer snart." data-en="Thank you! I'll be in touch soon."></p>
+    </form>
+  </div>
 </div>
 
 <!-- FOOTER -->
@@ -375,20 +450,44 @@ footer { padding: 60px 40px; }
 
 <script>
 function toggleMenu() {
-  document.getElementById('nav-dropdown').classList.toggle('open');
+  var dd = document.getElementById('nav-dropdown');
+  if (dd) dd.classList.toggle('open');
 }
 document.addEventListener('click', function(e) {
-  if (!e.target.closest('nav')) document.getElementById('nav-dropdown').classList.remove('open');
+  if (!e.target.closest('nav')) {
+    var dd = document.getElementById('nav-dropdown');
+    if (dd) dd.classList.remove('open');
+  }
 });
-
 function setLang(lang) {
-  document.getElementById('flag-sv').classList.toggle('active', lang === 'sv');
-  document.getElementById('flag-en').classList.toggle('active', lang === 'en');
+  var fsv = document.getElementById('flag-sv');
+  var fen = document.getElementById('flag-en');
+  if (fsv) fsv.classList.toggle('active', lang === 'sv');
+  if (fen) fen.classList.toggle('active', lang === 'en');
   document.querySelectorAll('[data-sv]').forEach(function(el) {
     el.innerHTML = lang === 'sv' ? el.getAttribute('data-sv') : el.getAttribute('data-en');
   });
   document.documentElement.lang = lang;
   document.title = lang === 'sv' ? 'Om mig — Anna Strandberg' : 'About me — Anna Strandberg';
+}
+
+var form = document.getElementById('contact-form-el');
+if (form) {
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var data = new FormData(form);
+    fetch('https://formspree.io/f/mnjonwqw', {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    }).then(function(res) {
+      if (res.ok) {
+        form.reset();
+        var msg = document.getElementById('form-success');
+        if (msg) msg.classList.add('visible');
+      }
+    });
+  });
 }
 </script>
 
