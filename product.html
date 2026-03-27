@@ -300,3 +300,27 @@ footer {
       <h4>Social</h4>
       <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
     
+<script>
+function toggleMenu() {
+  var dd = document.getElementById('nav-dropdown');
+  if (dd) dd.classList.toggle('open');
+}
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('nav')) {
+    var dd = document.getElementById('nav-dropdown');
+    if (dd) dd.classList.remove('open');
+  }
+});
+function setLang(lang) {
+  var fsv = document.getElementById('flag-sv');
+  var fen = document.getElementById('flag-en');
+  if (fsv) fsv.classList.toggle('active', lang === 'sv');
+  if (fen) fen.classList.toggle('active', lang === 'en');
+  document.querySelectorAll('[data-sv]').forEach(function(el) {
+    el.innerHTML = lang === 'sv' ? el.getAttribute('data-sv') : el.getAttribute('data-en');
+  });
+  document.documentElement.lang = lang;
+}
+</script>
+</body>
+</html>
