@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Video &amp; Content — Anna Strandberg</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'DM Sans', Helvetica, sans-serif;
+  font-weight: 300;
+  color: #0e0e0e;
+  background: #ffffff;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* NAV */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #fff;
+  border-bottom: 1px solid #e0e0dc;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 40px;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-name { font-size: 13px; font-weight: 400; color: #0e0e0e; text-decoration: none; }
+
+.lang-flags { display: flex; gap: 6px; align-items: center; }
+.flag-btn { background: none; border: none; cursor: pointer; padding: 0; font-size: 18px; line-height: 1; opacity: 0.35; transition: opacity 0.2s; }
+.flag-btn.active { opacity: 1; }
+.flag-btn:hover { opacity: 0.7; }
+
+.hamburger { background: none; border: none; cursor: pointer; padding: 4px; display: flex; flex-direction: column; gap: 5px; }
+.hamburger span { display: block; width: 22px; height: 1.5px; background: #0e0e0e; }
+
+.nav-dropdown { display: none; position: absolute; top: 100%; right: 40px; background: #fff; border: 1px solid #e0e0dc; min-width: 200px; z-index: 200; }
+.nav-dropdown.open { display: block; }
+.nav-dropdown a { display: block; font-size: 13px; color: #0e0e0e; text-decoration: none; padding: 14px 20px; border-bottom: 1px solid #e0e0dc; }
+.nav-dropdown a:last-child { border-bottom: none; }
+.nav-dropdown a:hover { background: #f5f5f3; }
+
+/* HEADER */
+.project-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  padding: 60px 40px 48px;
+}
+
+.project-header .left .label {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #999;
+  margin-bottom: 12px;
+}
+
+.project-header .left h1 {
+  font-size: clamp(32px, 4vw, 56px);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.project-header .right {
+  padding-top: 8px;
+}
+
+.project-header .right p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #444;
+}
+
+/* CONTENT */
+.content {
+  padding: 0 40px 80px;
+}
+
+/* Three column grid */
+.video-row-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 3px;
+  margin-bottom: 3px;
+}
+
+/* Full width */
+.video-full {
+  margin-bottom: 3px;
+  position: relative;
+}
+
+/* Video containers */
+.video-wrap {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: #111;
+}
+
+/* Portrait 9:16 for short-form */
+.video-wrap.portrait { aspect-ratio: 9/16; }
+
+/* Landscape for main video */
+.video-wrap.landscape { aspect-ratio: 16/9; }
+
+.video-wrap video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Instagram reel links */
+.reel-link {
+  display: block;
+  position: relative;
+  text-decoration: none;
+  overflow: hidden;
+}
+
+.reel-link img {
+  width: 100%;
+  aspect-ratio: 9/16;
+  object-fit: cover;
+  display: block;
+}
+
+.play-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.18);
+  transition: background 0.2s;
+}
+
+.reel-link:hover .play-overlay { background: rgba(0,0,0,0.32); }
+
+.play-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.play-icon svg {
+  width: 20px;
+  height: 20px;
+  fill: #0e0e0e;
+  margin-left: 3px;
+}
+
+/* FOOTER */
+footer {
+  border-top: 1px solid #e0e0dc;
+  padding: 60px 40px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 48px;
+}
+
+.footer-col h4 {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #999;
+  margin-bottom: 16px;
+}
+
+.footer-col address {
+  font-size: 14px;
+  font-style: normal;
+  line-height: 1.8;
+  color: #0e0e0e;
+}
+
+.footer-col a {
+  display: block;
+  font-size: 14px;
+  color: #0e0e0e;
+  text-decoration: none;
+  line-height: 2;
+}
+
+/* TABLET */
+@media (min-width: 600px) and (max-width: 999px) {
+  nav { padding: 14px 24px; }
+  .nav-dropdown { right: 24px; }
+
+  .project-header {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 40px 24px 36px;
+  }
+
+  .content { padding: 0 24px 60px; }
+
+  .video-row-3 { grid-template-columns: 1fr 1fr; }
+  .video-row-3 .video-item:last-child { display: none; }
+
+  footer { padding: 48px 24px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* MOBILE */
+@media (max-width: 599px) {
+  nav { padding: 14px 20px; }
+  .nav-dropdown { right: 20px; }
+
+  .project-header {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 32px 20px 28px;
+  }
+
+  .content { padding: 0 20px 48px; }
+
+  .video-row-3 { grid-template-columns: 1fr; }
+
+  footer { padding: 40px 20px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+}
+
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-left">
+    <a href="index.html" class="nav-name">Anna Strandberg</a>
+    <div class="lang-flags">
+      <button class="flag-btn active" onclick="setLang('sv')" id="flag-sv" title="Svenska">🇸🇪</button>
+      <button class="flag-btn" onclick="setLang('en')" id="flag-en" title="English">🇬🇧</button>
+    </div>
+  </div>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Meny">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-dropdown" id="nav-dropdown">
+    <a href="movs.html">MOVS</a>
+    <a href="kombispel.html">Kombispel</a>
+    <a href="product.html">Product Photography</a>
+    <a href="dandelion.html">Dandelion Yarns</a>
+    <a href="knit.html">Anna Strandberg Design</a>
+    <a href="video.html" data-sv="Video &amp; Content" data-en="Video &amp; Content">Video &amp; Content</a>
+    <a href="about.html" data-sv="Om mig" data-en="About me">Om mig</a>
+  </div>
+</nav>
+
+<header class="project-header">
+  <div class="left">
+    <p class="label" data-sv="Uppdrag" data-en="Work">Uppdrag</p>
+    <h1 data-sv="Video &amp; Content" data-en="Video &amp; Content">Video &amp; Content</h1>
+  </div>
+  <div class="right">
+    <p data-sv="Jag arbetar med content i bred bemärkelse — från manus och klippning till publicering och copy. Mycket av mitt videoarbete är gjort för sociala medier, med fokus på att hitta ett naturligt, engagerande tilltal som passar plattformen och varumärket. Jag rör mig gärna mellan olika format och uttryck, och trivs med att ta ett projekt hela vägen från idé till färdig produkt." data-en="I work with content in a broad sense — from scripting and editing to publishing and copywriting. Much of my video work is created for social media, with a focus on finding a natural, engaging tone that fits the platform and the brand. I move comfortably between different formats and expressions, and enjoy taking a project all the way from idea to finished product.">Jag arbetar med content i bred bemärkelse — från manus och klippning till publicering och copy. Mycket av mitt videoarbete är gjort för sociala medier, med fokus på att hitta ett naturligt, engagerande tilltal som passar plattformen och varumärket. Jag rör mig gärna mellan olika format och uttryck, och trivs med att ta ett projekt hela vägen från idé till färdig produkt.</p>
+  </div>
+</header>
+
+<div class="content">
+
+  <!-- Rad 1: tre kortvideos -->
+  <div class="video-row-3">
+    <div class="video-item">
+      <div class="video-wrap portrait">
+        <video autoplay muted loop playsinline>
+          <source src="AW-2.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+    <div class="video-item">
+      <div class="video-wrap portrait">
+        <video autoplay muted loop playsinline>
+          <source src="Rough.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+    <div class="video-item">
+      <div class="video-wrap portrait">
+        <video autoplay muted loop playsinline>
+          <source src="niu.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rad 2: stor landscape video -->
+  <div class="video-full">
+    <div class="video-wrap landscape">
+      <video autoplay muted loop playsinline>
+        <source src="Lukas.MP4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+
+  <!-- Rad 3: tre Instagram Reels -->
+  <div class="video-row-3">
+    <div class="video-item">
+      <a class="reel-link" href="https://www.instagram.com/reel/C7UEyV6oiJK/" target="_blank" rel="noopener">
+        <img src="reel1.jpg" alt="Instagram Reel">
+        <div class="play-overlay">
+          <div class="play-icon">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="video-item">
+      <a class="reel-link" href="https://www.instagram.com/reel/C3x32_UoKYu/" target="_blank" rel="noopener">
+        <img src="reel2.jpg" alt="Instagram Reel">
+        <div class="play-overlay">
+          <div class="play-icon">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="video-item">
+      <a class="reel-link" href="https://www.instagram.com/reel/C9fWPxaoWzp/" target="_blank" rel="noopener">
+        <img src="reel3.jpg" alt="Instagram Reel">
+        <div class="play-overlay">
+          <div class="play-icon">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<footer id="contact">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h4 data-sv="Kontor" data-en="Office">Kontor</h4>
+      <address>Stockholm</address>
+    </div>
+    <div class="footer-col">
+      <h4>Social</h4>
+      <a href="https://www.instagram.com/anna_dandelion" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.linkedin.com/in/anna-strandberg-71a2633" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+    <div class="footer-col">
+      <h4 data-sv="Om" data-en="About">Om</h4>
+      <a href="about.html" data-sv="Om mig" data-en="About me">Om mig</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu() {
+  var dd = document.getElementById('nav-dropdown');
+  if (dd) dd.classList.toggle('open');
+}
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('nav')) {
+    var dd = document.getElementById('nav-dropdown');
+    if (dd) dd.classList.remove('open');
+  }
+});
+function setLang(lang) {
+  var fsv = document.getElementById('flag-sv');
+  var fen = document.getElementById('flag-en');
+  if (fsv) fsv.classList.toggle('active', lang === 'sv');
+  if (fen) fen.classList.toggle('active', lang === 'en');
+  document.querySelectorAll('[data-sv]').forEach(function(el) {
+    el.innerHTML = lang === 'sv' ? el.getAttribute('data-sv') : el.getAttribute('data-en');
+  });
+  document.documentElement.lang = lang;
+  document.title = lang === 'sv' ? 'Video & Content — Anna Strandberg' : 'Video & Content — Anna Strandberg';
+}
+</script>
+
+</body>
+</html>
