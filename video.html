@@ -128,7 +128,29 @@ nav {
   display: block;
 }
 
-/* Instagram reel links */
+/* Video play button overlay */
+.video-container {
+  position: relative;
+  cursor: pointer;
+}
+
+.video-container .play-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.18);
+  transition: background 0.2s;
+}
+
+.video-container.playing .play-overlay {
+  display: none;
+}
+
+.video-container:hover .play-overlay {
+  background: rgba(0,0,0,0.28);
+}
 .reel-link {
   display: block;
   position: relative;
@@ -247,6 +269,45 @@ footer {
   .footer-grid { grid-template-columns: 1fr; gap: 32px; }
 }
 
+
+/* Video container with play overlay */
+.video-container {
+  position: relative;
+  cursor: pointer;
+}
+
+.video-container .play-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.2);
+  transition: background 0.2s;
+  z-index: 2;
+}
+
+.video-container:hover .play-overlay { background: rgba(0,0,0,0.35); }
+
+.video-container.playing .play-overlay { display: none; }
+
+.play-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.play-icon svg {
+  width: 22px;
+  height: 22px;
+  fill: #0e0e0e;
+  margin-left: 3px;
+}
+
 </style>
 </head>
 <body>
@@ -288,34 +349,62 @@ footer {
   <!-- Rad 1: tre kortvideos -->
   <div class="video-row-3">
     <div class="video-item">
-      <div class="video-wrap portrait">
-        <video poster="AW.jpg" autoplay muted loop playsinline>
-          <source src="AW-2.mp4" type="video/mp4">
-        </video>
+      <div class="video-container" onclick="playVideo(this)">
+        <div class="video-wrap portrait">
+          <video poster="AW.jpg" playsinline>
+            <source src="AW-2.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="play-overlay">
+          <div class="play-icon">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+        </div>
       </div>
     </div>
     <div class="video-item">
-      <div class="video-wrap portrait">
-        <video poster="rough.jpg" autoplay muted loop playsinline>
-          <source src="Rough.mp4" type="video/mp4">
-        </video>
+      <div class="video-container" onclick="playVideo(this)">
+        <div class="video-wrap portrait">
+          <video poster="rough.jpg" playsinline>
+            <source src="Rough.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="play-overlay">
+          <div class="play-icon">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+        </div>
       </div>
     </div>
     <div class="video-item">
-      <div class="video-wrap portrait">
-        <video poster="niu.jpg" autoplay muted loop playsinline>
-          <source src="niu.mp4" type="video/mp4">
-        </video>
+      <div class="video-container" onclick="playVideo(this)">
+        <div class="video-wrap portrait">
+          <video poster="lukas.jpg" playsinline>
+            <source src="Lukas.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="play-overlay">
+          <div class="play-icon">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
   <!-- Rad 2: stor landscape video -->
   <div class="video-full">
-    <div class="video-wrap landscape">
-      <video poster="lukas.jpg" autoplay muted loop playsinline>
-        <source src="Lukas.mp4" type="video/mp4">
-      </video>
+    <div class="video-container" onclick="playVideo(this)">
+      <div class="video-wrap landscape">
+        <video poster="niu.jpg" playsinline>
+          <source src="niu.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="play-overlay">
+        <div class="play-icon">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -374,6 +463,15 @@ footer {
 </footer>
 
 <script>
+
+function playVideo(container) {
+  var video = container.querySelector('video');
+  if (video) {
+    container.classList.add('playing');
+    video.play();
+  }
+}
+
 function toggleMenu() {
   var dd = document.getElementById('nav-dropdown');
   if (dd) dd.classList.toggle('open');
@@ -393,7 +491,16 @@ function setLang(lang) {
     el.innerHTML = lang === 'sv' ? el.getAttribute('data-sv') : el.getAttribute('data-en');
   });
   document.documentElement.lang = lang;
-  document.title = lang === 'sv' ? 'Video & Content — Anna Strandberg' : 'Video & Content — Anna Strandberg';
+}
+function playVideo(container) {
+  var video = container.querySelector('video');
+  if (video.paused) {
+    video.play();
+    container.classList.add('playing');
+  } else {
+    video.pause();
+    container.classList.remove('playing');
+  }
 }
 </script>
 
