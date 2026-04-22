@@ -116,10 +116,10 @@ nav {
 }
 
 /* Portrait 9:16 for short-form */
-.video-wrap.portrait { aspect-ratio: 9/16; }
+.video-wrap.portrait { aspect-ratio: 9/16; position: relative; overflow: hidden; }
 
 /* Landscape for main video */
-.video-wrap.landscape { aspect-ratio: 16/9; }
+.video-wrap.landscape { aspect-ratio: 16/9; position: relative; overflow: hidden; }
 
 .video-wrap video {
   width: 100%;
@@ -363,48 +363,21 @@ footer {
       </div>
     </div>
     <div class="video-item">
-      <div class="video-container" onclick="playVideo(this)">
-        <div class="video-wrap portrait">
-          <video poster="rough.jpg" playsinline>
-            <source src="Rough.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="play-overlay">
-          <div class="play-icon">
-            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-          </div>
-        </div>
+      <div class="video-wrap portrait">
+        <iframe src="https://www.youtube.com/embed/tPWbbSUwr6U?rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%;height:100%;position:absolute;top:0;left:0;"></iframe>
       </div>
     </div>
     <div class="video-item">
-      <div class="video-container" onclick="playVideo(this)">
-        <div class="video-wrap portrait">
-          <video poster="lukas.jpg" playsinline>
-            <source src="Lukas.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="play-overlay">
-          <div class="play-icon">
-            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-          </div>
-        </div>
+      <div class="video-wrap portrait">
+        <iframe src="https://www.youtube.com/embed/cegrvJ9KC0o?rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%;height:100%;position:absolute;top:0;left:0;"></iframe>
       </div>
     </div>
   </div>
 
   <!-- Rad 2: stor landscape video -->
   <div class="video-full">
-    <div class="video-container" onclick="playVideo(this)">
-      <div class="video-wrap landscape">
-        <video poster="niu.jpg" playsinline>
-          <source src="niu.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="play-overlay">
-        <div class="play-icon">
-          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-        </div>
-      </div>
+    <div class="video-wrap landscape">
+      <iframe src="https://www.youtube.com/embed/yoQkC8fC02I?rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%;height:100%;position:absolute;top:0;left:0;"></iframe>
     </div>
   </div>
 
